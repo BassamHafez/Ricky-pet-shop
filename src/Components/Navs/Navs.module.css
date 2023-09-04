@@ -1,0 +1,12 @@
+.navbar_class{
+    background-color:#1F0137 !important;
+}
+.nav_logo{
+    width: 9.375rem;
+}
+.search_icon{
+    background-color: transparent;
+    color: white;
+    padding: 0.625rem;
+    font-size: 1.5625rem;
+}

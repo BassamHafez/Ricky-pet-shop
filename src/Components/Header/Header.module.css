@@ -1,0 +1,50 @@
+.header{
+    position: relative;
+}
+.header_caption h1{
+    background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,#5D1A9F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    font-weight: 800;
+    width: 100%;
+    margin-bottom: 1.25rem;    
+}
+.header_caption{
+    text-align: center;
+    padding: 3.125rem 0 1.25rem 0;
+}
+.header_circles{
+    position: absolute;
+    left:-10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 21.875rem;
+    z-index: -1;
+}
+
+@media screen and (max-width:768px) {
+ 
+    .header_rows{
+        flex-direction: column-reverse;
+    }
+    .header_caption{
+        margin: auto;
+        width: 100%;
+    }   
+    .header_caption h1{
+        font-size: 3.125rem;
+        padding:1.25rem 0;
+    }
+
+}
+
+
+@media screen and (max-width:1000px) { 
+    .header_caption h1{
+        font-size: 50px;
+        padding:20px 0;
+    }
+
+}

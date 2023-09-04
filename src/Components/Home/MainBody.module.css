@@ -1,0 +1,95 @@
+/* _____________________________________________________________________________________ */
+/* start first sec */
+
+.first_sec{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first_sec_item_fish{
+    background-image: url( ../../images/ricky-1548972790.jpg);
+
+}
+
+.first_sec_item_bird{
+    background-image: url( ../../images/ricky-1536822594.jpg);
+}
+.first_sec_item_rabbit{
+    background-image: url( ../../images/ricky-1510412634.jpg);
+}
+
+.first_sec_item_fish,.first_sec_item_bird,.first_sec_item_rabbit{
+    background-size: cover;
+    min-height: 25rem;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+.first_sec_item_fish h2,.first_sec_item_bird h2,.first_sec_item_rabbit h2{
+    width:50%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    font-family: cursive;
+    font-weight: 700;
+}
+
+/* _____________________________________________________________________________________ */
+/* start second sec 
+
+https://parkofideas.com/ricky/demo/home-8/
+*/
+
+.second_sec_caption{
+    text-align: center;
+}
+.second_sec_caption h2,.second_sec_caption h4{
+        background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,#5D1A9F);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2.1875rem;
+        width: 100%;
+        font-weight: 700;
+}
+    .second_sec_caption h2{
+        font-size: 5rem;
+        font-weight: 800;
+    }
+    .second_sec_caption h6{
+        font-size: 1.25rem;
+        color: #9d61da;
+        margin-bottom: 1.875rem;
+        font-weight: 700;
+    }
+   
+
+    
+@media screen and (max-width:768px) {
+ 
+    .second_sec_caption{
+        margin: auto;
+        width: 100%;
+    }   
+    .second_sec_caption h2{
+        font-size:3.125rem;
+    }
+    .second_sec_caption h4{
+        font-size: 1.5625rem;
+    }
+}
+
+
+@media screen and (max-width:62.5rem) { 
+    .second_sec_caption h2{
+        font-size: 3.125rem;
+        padding:1.25rem 0;
+    }
+    .second_sec_caption h4{
+        font-size: 1.5625rem;
+        padding:1.25rem 0;
+    }
+
+}
