@@ -1,6 +1,7 @@
 .navbar_class{
     background-color:#1F0137 !important;
 }
+
 .nav_logo{
     width: 9.375rem;
 }
@@ -9,4 +10,16 @@
     color: white;
     padding: 0.625rem;
     font-size: 1.5625rem;
+}
+
+.navbar_class a{
+    color: white;
+    text-decoration: none;
+    margin-inline: 10px;
+}
+
+.navbar_class a.active,
+.navbar_class a:hover
+{
+    color: red;
 }

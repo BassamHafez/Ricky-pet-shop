@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container,Row,Col } from 'react-bootstrap'
 import styles from './MainBody.module.css';
-import MainButton from '../Ui/MainButton';
+import MainButton from '../../../Components/Ui/MainButton';
 
-import cat from '../../images/ricky-1502008994.png'
+import cat from '../../../images/ricky-1502008994.png'
 const MainBody = () => {
   return (
     <>
