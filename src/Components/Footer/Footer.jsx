@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 const Footer = () => {
   return (
     <footer className={`${styles.footer} d-flex align-items-center`}>
-      <div className="px-5 d-flex flex-column align-items-center justify-content-center w-50 h-100 ">
+      <div className={`${styles.footer_caption} px-5 d-flex flex-column align-items-center justify-content-center`}>
         <h2 className="text-center mb-5">
          keep your pet happy and comfortable.
         </h2>
