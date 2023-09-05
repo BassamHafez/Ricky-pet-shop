@@ -1,0 +1,67 @@
+
+   .Swiper_container{
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #cfa1fc;
+   }
+  .slide {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    padding-left: 10px;
+    background-color: white;
+  }
+  .person{
+    border: 2px dashed #7321c498;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+  .person_name{
+    font-weight: 700;
+    font-size: 20px;
+    color:#531492;
+  }
+  .person_comment{
+        padding:50px 0;
+    }
+    .person_comment p{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    .person_comment p:hover{
+        -webkit-line-clamp: unset;
+         line-clamp: unset;
+    }
+  .person_date{
+        color: gray;
+        font-size: 12px;
+    }
+ .reacts{
+        display: flex;
+    }
+
+    .reacts>:first-child{
+        color: #4867AA;
+    }
+
+    .reacts>:nth-child(2){
+        color: rgb(80, 80, 80);
+    }
+    .reacts>:nth-child(3){
+        color:red;
+    }
+
+    .reacts > *{
+       transition: all .5s;
+       cursor: pointer;
+    }
+    .reacts > *:hover{
+        transform: scale(2);
+    }
+  
+

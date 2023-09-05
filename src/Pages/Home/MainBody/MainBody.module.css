@@ -44,6 +44,10 @@ https://parkofideas.com/ricky/demo/home-8/
 
 .second_sec_caption{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .second_sec_caption h2,.second_sec_caption h4{
         background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,#5D1A9F);
@@ -64,9 +68,59 @@ https://parkofideas.com/ricky/demo/home-8/
         margin-bottom: 1.875rem;
         font-weight: 700;
     }
-   
+
+    /* _____________________________________________________________________________________ */
+    /* start third section */
+    
+    .pet_types img{
+        cursor: pointer;
+        transition: all .5s;
+    }
+
+    .pet_types img:hover{
+        transform: scale(1.1);
+    }
+
+    .pet_types h3,.fourth_sec_title h2 {
+        text-align: center;
+        color: #5D1A9F;
+        font-weight: 700;
+    }
+
+    /* _____________________________________________________________________________________ */
+    /* start third section */
+    .fourth_sec{
+        padding:2.5rem;
+    }
+
+    .fourth_sec_title{
+        font-size: 1.5625rem;
+        font-family: cursive;
+        padding: 1.25rem 0;
+    }
+
+    .suggetions_input{
+        margin-top: 2.5rem;
+    }
+    .suggetions_input,.suggetions_textarea{
+        background-color:white;
+        border-radius: 0.625rem;
+        border: 0.125rem solid #cfa1fc;
+        width: 100%;
+        padding: 0.625rem;
+        outline:none;
+        color: #8c41d8;
+        transition: all .2s;
+    }
+    .suggetions_input:hover,.suggetions_textarea:hover{
+        border: 2px solid #8c41d8 !important;
+    }
 
     
+    
+
+
+
 @media screen and (max-width:768px) {
  
     .second_sec_caption{
@@ -78,6 +132,9 @@ https://parkofideas.com/ricky/demo/home-8/
     }
     .second_sec_caption h4{
         font-size: 1.5625rem;
+    }
+    form{
+        margin-bottom: 3.125rem;
     }
 }
 

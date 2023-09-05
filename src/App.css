@@ -1,14 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+
+
 *{
    margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 body{
   scroll-behavior: smooth;
   background-color: #edd0f7 !important;
   overflow-x: hidden;
 }
+.fab{
+  transition: all .5s;
+}
+.fa-facebook:hover {
+  color:  #1877F2;
+  cursor: pointer;
 
+}
+.fa-youtube:hover{
+
+  cursor: pointer;
+  color: red;
+}
+.fa-tiktok:hover{
+
+  cursor: pointer;
+  color: black;
+}
+.fa-instagram:hover{
+
+  cursor: pointer;
+  color:#E4405F
+}
+.fa-twitter:hover{
+
+  cursor: pointer;
+  color:  #1DA1F2 ;
+}
 
 
 @media screen and (max-width:768px) {
