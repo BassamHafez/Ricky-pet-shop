@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
 
 
+:root{
+  --main_color:#5D1A9F;
+  --indigo:#8c41d8;
+  --pink:#c978ff;
+}
+
 *{
    margin: 0;
   padding: 0;

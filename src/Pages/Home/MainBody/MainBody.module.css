@@ -50,7 +50,7 @@ https://parkofideas.com/ricky/demo/home-8/
     align-items: center;
 }
 .second_sec_caption h2,.second_sec_caption h4{
-        background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,#5D1A9F);
+        background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -83,7 +83,7 @@ https://parkofideas.com/ricky/demo/home-8/
 
     .pet_types h3,.fourth_sec_title h2 {
         text-align: center;
-        color: #5D1A9F;
+        color: var(--main_color);
         font-weight: 700;
     }
 
@@ -109,11 +109,11 @@ https://parkofideas.com/ricky/demo/home-8/
         width: 100%;
         padding: 0.625rem;
         outline:none;
-        color: #8c41d8;
+        color: var(--indigo);
         transition: all .2s;
     }
     .suggetions_input:hover,.suggetions_textarea:hover{
-        border: 2px solid #8c41d8 !important;
+        border: 2px solid var(--indigo) !important;
     }
 
     

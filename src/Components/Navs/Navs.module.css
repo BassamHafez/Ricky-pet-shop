@@ -27,8 +27,8 @@
 .navbar_class a.active,
 .navbar_class a:hover
 {
-    color:#c978ff;
-    border-bottom: #c978ff 3px solid;
+    color:var(--pink);
+    border-bottom: var(--pink) 3px solid;
 
 }
 

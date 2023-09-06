@@ -6,7 +6,7 @@
     color:#020f20;
 }
 .footer h2{
-    color: #5D1A9F;
+    color: var(--main_color);
     font-weight: 900;
     font-size: 60px;
     font-family: cursive;

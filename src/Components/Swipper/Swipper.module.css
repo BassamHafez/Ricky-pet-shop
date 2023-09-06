@@ -20,7 +20,7 @@
   .person_name{
     font-weight: 700;
     font-size: 20px;
-    color:#531492;
+    color:var(--main_color);
   }
   .person_comment{
         padding:50px 0;

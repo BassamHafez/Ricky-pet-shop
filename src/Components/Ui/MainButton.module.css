@@ -1,5 +1,5 @@
 .main_button{
-    background:linear-gradient(135deg,#a06ad6,#8c41d8,#5D1A9F);
+    background:linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
     color: white;
     padding:0.9375rem 1.25rem;
     font-size: 1.25rem;
