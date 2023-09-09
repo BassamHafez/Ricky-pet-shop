@@ -1,18 +1,19 @@
 .card{
-    height: 400px;
-    margin-bottom: 20px;
+    height: 25rem;
+    margin-bottom: 50px;
+    position: relative;
 }
 .card_content{
     height: 100%;
     width: 100%;
-    border-radius: 10px;
-    background-color: rgb(179, 101, 114);
-    border: 2px solid var(--main_color);
+    border-radius: 0.625rem;
+    background-color:#D3D3D3;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, .5);
 }
 .card_img{
     height: 60%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 .card_img img{
     width: 100%;
@@ -24,26 +25,66 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(250, 238, 223);
-    font-weight: 700;
 }
-.card_button_one,.card_button_two{
-    padding:10px;
-    width: 80%;
-    margin-bottom: 5px;
-    border: 1px solid var(--main_color);
-    transition: all .5s;
+.card_caption h5{
+    font-family: var(--main_font);
+    color: black;
+    font-weight: 800;
+    margin-top: 0.625rem;
+
 }
 .card_button_one{
-    border-radius:  0 20px  0 20px;
+    padding:0.625rem;
+    width: 80%;
+    margin-bottom: 0.3125rem;
+    border: 1px solid var(--main_color);
+    transition: all .5s;
+    border-radius:  0 1.25rem  0 1.25rem;
     background-color: rgb(250, 238, 223);
     color: var(--indigo);
 }
-.card_button_two{
-    border-radius:  20px 0  20px 0;
-    background-color: var(--indigo);
-}
-.card_button_one:hover,.card_button_two:hover{
+.card_button_one:hover{
     background-color: var(--main_color);
     color: rgb(250, 238, 223);
+}
+.card_cart,
+.card_eye,
+.card_wish{
+    background-color: white;
+    color: var(--main_color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    transition: all .5s;
+}
+.card_cart{
+    bottom: 2%;
+    right: 8%;
+}
+.card_eye{
+    top: 15%;
+    right: 5%;
+}
+.card_wish{
+    top: 2%;
+    right: 5%;
+}
+.card_cart:hover,
+.card_eye:hover,
+.card_wish:hover{
+    background-color: var(--main_color);
+    color: white;
+}
+
+.life{
+    font-family: var(--main_font);
+    color: gray;
+}
+.life span{
+    color: var(--main_color);
+}
+.temperament{
+    color: gray;
+    font-size: 14px;
 }

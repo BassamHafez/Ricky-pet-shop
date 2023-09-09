@@ -1,0 +1,12 @@
+.select_btn{
+    background-color: var(--light);
+    padding: 12px 20px;
+    color: var(--indigo);
+    border-radius: 20px;
+    font-size: 20px;
+    transition: all .5s;
+}
+.select_btn:hover{
+    color:var(--light) ;
+    background-color: var(--indigo);
+}
