@@ -20,6 +20,12 @@ body{
   background-color: #edd0f7 !important;
   overflow-x: hidden;
 }
+a{
+  text-decoration: none;
+}
+button,input{
+  outline: none;
+}
 .fab{
   transition: all .5s;
 }

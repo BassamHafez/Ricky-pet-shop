@@ -6,22 +6,27 @@ import styles from "./Dogs.module.css";
 import TypeButton from "./../../Components/Ui/TypeButton";
 
 const Dogs = () => {
-  const [cats, setCats] = useState([]);
+  const [dogs, setdogs] = useState([]);
+  const [selected, setSelected] = useState("1,3,4,5,6,7,8,9,10,11");
 
 
   useEffect(() => {
     const fetchData = async () => {
       let { data } = await axios(
-        `https://api.thedogapi.com/v1/images/search?limit=20&breed_ids=5,6,7,8&api_key=live_2KezZROYSVMIobsbx3rgXKK80nHNTjiwEeW2TezLDOCWKSIMuxp11MLd0wxnKCMD`
+        `https://api.thedogapi.com/v1/images/search?limit=30&breed_ids=${selected}&api_key=live_2KezZROYSVMIobsbx3rgXKK80nHNTjiwEeW2TezLDOCWKSIMuxp11MLd0wxnKCMD`
       );
 
-      setCats(data);
+      setdogs(data);
       console.log(data)
     };
 
     fetchData();
-  }, []);
+  }, [selected]);
 
+  const setSelectedHandler =(e)=>{
+    let type = e.target.value;
+    setSelected(type);
+  }
 
   return (
     <div className={styles.container}>
@@ -32,17 +37,32 @@ const Dogs = () => {
         </div>
       </div>
       <Container fluid>
+      <div className={`${styles.select_type} my-5`}>
+          <select name="dogs" id="dogs" onChange={setSelectedHandler}>
+            <option value="1,3,4,5,6,7,8,9,10,11">All Breeds</option>
+            <option value="1">American Shorthair</option>
+            <option value="2">British Longhair</option>
+            <option value="3">British Shorthair</option>
+            <option value="4">Cymric</option>
+            <option value="5">Abyssinian</option>
+            <option value="6">Balinese</option>
+            <option value="7">Birman</option>
+            <option value="8">Chartreux</option>
+            <option value="9">Khao Manee</option>
+            <option value="10">Aegean</option>
+          </select>
+        </div>
         <Row className="p-5">
-          {cats.map((cat) => {
+          {dogs.map((dog) => {
             return (
               <PetCard
-                key={cat.id}
-                id={cat.id}
-                name={cat.breeds[0].name}
-                src={cat.url}
-                wiki={cat.breeds[0].wikipedia_url}
-                temperament={cat.breeds[0].temperament}
-                life={cat.breeds[0].life_span}
+                key={dog.id}
+                id={dog.id}
+                name={dog.breeds[0].name}
+                src={dog.url}
+                wiki={dog.breeds[0].wikipedia_url}
+                temperament={dog.breeds[0].temperament}
+                life={dog.breeds[0].life_span}
               />
             );
           })}
