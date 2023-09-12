@@ -1,4 +1,38 @@
-.modal_title{
-    font-weight: 700;
-    font-size: 25px;
+.body{
+    background-image:url(../../images/karsten-winegeart--4m_O9iJlPo-unsplash.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
 }
+
+.close_btn{
+    position: fixed;
+    top:0;
+    right:30px;
+ }
+ .close_btn button{
+     background-color: transparent;
+     color: rgb(230, 173, 18);
+     font-size: 18px;
+     transition: all .5s;
+ }
+ .close_btn button:hover{
+     color:black;
+     transform: scale(1.1);
+ }
+ .order_btn{
+     text-align: end;
+ }
+ .order_btn button{
+     background-color: rgb(230, 173, 18);
+     color: black;
+     font-weight: 700;
+     padding: 10px;
+     border-radius: 0 100% 100% 0;
+     transition: all .5s;
+  }
+  .order_btn button:hover{
+     background-color: #6b6a6a9a;
+     color: rgb(230, 173, 18);
+  }
+ 

@@ -37,7 +37,7 @@ const Cats = () => {
           <TypeButton text="Shop Now" />
         </div>
       </div>
-      <Container fluid>
+      <Container>
         <div className={`${styles.select_type} my-5`}>
           <select name="cats" id="cats" onChange={setSelectedHandler}>
             <option value="asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege">All Breeds</option>

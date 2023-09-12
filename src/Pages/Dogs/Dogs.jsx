@@ -17,7 +17,6 @@ const Dogs = () => {
       );
 
       setdogs(data);
-      console.log(data)
     };
 
     fetchData();
@@ -36,7 +35,7 @@ const Dogs = () => {
           <TypeButton text="Shop Now" />
         </div>
       </div>
-      <Container fluid>
+      <Container fluid className='px-lg-5'>
       <div className={`${styles.select_type} my-5`}>
           <select name="dogs" id="dogs" onChange={setSelectedHandler}>
             <option value="1,3,4,5,6,7,8,9,10,11">All Breeds</option>
@@ -52,7 +51,7 @@ const Dogs = () => {
             <option value="10">Aegean</option>
           </select>
         </div>
-        <Row className="p-5">
+        <Row className="mt-5 px-lg-5">
           {dogs.map((dog) => {
             return (
               <PetCard

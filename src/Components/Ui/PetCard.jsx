@@ -3,6 +3,8 @@ import { Col } from 'react-bootstrap';
 import styles from './PetCard.module.css';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../Store/cart-slice';
+import { wishActions } from '../../Store/wish-slice';
+import MainButton from './MainButton';
 
 const PetCard = (props) => {
 
@@ -16,8 +18,17 @@ const PetCard = (props) => {
     }));
   }
 
+  const addtoWishHandler =()=>{
+    dispatch(wishActions.addItemsToWishList({
+      id:props.id,
+      name:props.name,
+      src:props.src
+    }))
+  }
+
   return (
-    <Col sm={6} md={4} lg={3} className={styles.card} key={props.id}>
+    <Col sm={6} md={4} className={styles.card} key={props.id}>
+      <div className={styles.card_parent}>
         <div className={styles.card_content}>
             <div className={styles.card_img}>
                 <img src={props.src} alt={props.name} />
@@ -28,8 +39,10 @@ const PetCard = (props) => {
                 <p className={styles.temperament} >{props.temperament}</p>
                 <button onClick={addToCartHandler} title='add to cart'  className={styles.card_cart}><i className="fa-solid fa-cart-plus"></i></button>
                 <button  title='quick view' className={styles.card_eye}><i className="fa-solid fa-eye"></i></button>
-                <button  title='add to wishlist' className={styles.card_wish}><i className="fa-regular fa-heart"></i></button>
+                <button onClick={addtoWishHandler}  title='add to wishlist' className={styles.card_wish}><i className="fa-regular fa-heart"></i></button>
             </div>
+        </div>
+            <MainButton text='Read More'/>
         </div>
     </Col>
   )

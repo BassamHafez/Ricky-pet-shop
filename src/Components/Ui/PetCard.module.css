@@ -1,24 +1,61 @@
 .card{
-    height: 25rem;
-    margin-bottom: 50px;
+    height: 37.5rem;
+    margin-top: 3.125rem;
+    padding-top: 3.125rem;
+    position: relative;
+}
+.card_parent{
+    background-image: url(../../images/feets.png);
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    background-color: var(--main_color);
+    border-radius: 1.875rem;
+    padding-bottom: 1.5625rem;
+    height: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     position: relative;
 }
 .card_content{
-    height: 100%;
-    width: 100%;
-    border-radius: 0.625rem;
-    background-color:#D3D3D3;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, .5);
+    height:90%;
+    width: 90%;
+    border-radius: 1.875rem;
+    padding: 0.625rem;
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e9e9e9;
+    box-shadow: 0 -0.5rem 0.5rem rgba(0, 0, 0, 0.212);
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .5s;
+}
+.card_content:hover{
+    box-shadow: 0 -0.5rem 0.5rem rgba(0, 0, 0, 0.7);
 }
 .card_img{
-    height: 60%;
-    width: 100%;
-    border-radius: 0.625rem;
+    height: 11.25rem;
+    width: 11.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.625rem solid white;
+    transition: all .5s;
 }
+
 .card_img img{
     width: 100%;
     height: 100%;
 }
+
+.card_content:hover .card_img{
+    scale: 1.1;
+    transform: rotate(8deg);
+}
+
 .card_caption{
     text-align: center;
     display: flex;
@@ -27,9 +64,9 @@
     align-items: center;
 }
 .card_caption h5{
-    font-family: var(--main_font);
+
     color: black;
-    font-weight: 800;
+    font-weight: 700;
     margin-top: 0.625rem;
 
 }
@@ -52,14 +89,14 @@
 .card_wish{
     background-color: white;
     color: var(--main_color);
-    width: 35px;
-    height: 35px;
+    width: 2.1875rem;
+    height: 2.1875rem;
     border-radius: 50%;
     position: absolute;
     transition: all .5s;
 }
 .card_cart{
-    bottom: 1%;
+    bottom: 3%;
     right: 6%;
 }
 .card_eye{
@@ -78,7 +115,7 @@
 }
 
 .life{
-    font-family: var(--main_font);
+
     color: gray;
 }
 .life span{
@@ -86,5 +123,21 @@
 }
 .temperament{
     color: gray;
-    font-size: 14px;
+    font-size: 0.875rem;
+}
+
+
+@media screen and (min-width:768px) and (max-width:980px) {
+    .card_img{
+        height: 8.75rem;
+        width: 8.75rem;
+    }
+    .card_eye{
+        top: 15%;
+        right: 2%;
+    }
+    .card_wish{
+        top: 2%;
+        right: 2%;
+    }
 }
