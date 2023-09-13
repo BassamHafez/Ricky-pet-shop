@@ -1,13 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 import styles from './PetCard.module.css';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../Store/cart-slice';
 import { wishActions } from '../../Store/wish-slice';
 import MainButton from './MainButton';
+import { singlePetActions } from '../../Store/singlePet-slice';
 
 const PetCard = (props) => {
-
+  const navigate=useNavigate();
   const dispatch = useDispatch();
 
   const addToCartHandler=()=>{
@@ -26,6 +28,26 @@ const PetCard = (props) => {
     }))
   }
 
+  const sendDataToSinglePet=()=>{
+    dispatch(singlePetActions.sendData({
+      id:props.id,
+      name:props.name,
+      src:props.src,
+      desc:props.desc,
+      country:props.country,
+      wiki:props.wiki,
+      vcahospitals_url:props.vcahospitals_url,
+      vetstreet_url:props.vetstreet_url,
+      temperament:props.temperament,
+      life:props.life,
+      adaptability:props.adaptability,
+      intelligence:props.intelligence,
+      social_needs:props.social_needs,
+      energy_level:props.energy_level,
+    }))
+    navigate('singlePet');
+  }
+
   return (
     <Col sm={6} md={4} className={styles.card} key={props.id}>
       <div className={styles.card_parent}>
@@ -38,11 +60,11 @@ const PetCard = (props) => {
                 <p  className={styles.life}><span>life_span </span>: {props.life}</p>
                 <p className={styles.temperament} >{props.temperament}</p>
                 <button onClick={addToCartHandler} title='add to cart'  className={styles.card_cart}><i className="fa-solid fa-cart-plus"></i></button>
-                <button  title='quick view' className={styles.card_eye}><i className="fa-solid fa-eye"></i></button>
+                <button onClick={sendDataToSinglePet}  title='quick view' className={styles.card_eye}><i className="fa-solid fa-eye"></i></button>
                 <button onClick={addtoWishHandler}  title='add to wishlist' className={styles.card_wish}><i className="fa-regular fa-heart"></i></button>
             </div>
         </div>
-            <MainButton text='Read More'/>
+            <MainButton text='Read More' />
         </div>
     </Col>
   )

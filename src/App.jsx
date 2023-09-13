@@ -6,7 +6,7 @@ import Birds from "./Pages/Birds/Birds";
 import Root from "./Pages/Root";
 import Home from "./Pages/Home/Home.jsx/Home";
 import Error from "./Components/Error/Error";
-import Shop from "./Pages/Shop/Shop";
+import SinglePet from "./Components/SinglePet/SinglePet";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       { path: "dogs", element: <Dogs /> },
       { path: "cats", element: <Cats /> },
       { path: "birds", element: <Birds /> },
-      { path: "shop", element: <Shop /> },
+      { path: "cats/singlePet", element: <SinglePet /> },
     ],
   },
 ]);

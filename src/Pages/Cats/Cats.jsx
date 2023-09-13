@@ -22,8 +22,8 @@ const Cats = () => {
 
       setCats(data);
       setIsLoading(false);
+      console.log(data)
     };
-
     fetchData();
   }, [selected]);
 
@@ -65,9 +65,17 @@ const Cats = () => {
                 id={cat.id}
                 name={cat.breeds[0].name}
                 src={cat.url}
+                desc={cat.breeds[0].description}
+                country={cat.breeds[0].country_code}
                 wiki={cat.breeds[0].wikipedia_url}
+                vcahospitals_url={cat.breeds[0].vcahospitals_url}
+                vetstreet_url={cat.breeds[0].vetstreet_url}
                 temperament={cat.breeds[0].temperament}
                 life={cat.breeds[0].life_span}
+                adaptability={cat.breeds[0].adaptability}
+                intelligence={cat.breeds[0].intelligence}
+                social_needs={cat.breeds[0].social_needs}
+                energy_level={cat.breeds[0].energy_level}
               />
             );
           })}

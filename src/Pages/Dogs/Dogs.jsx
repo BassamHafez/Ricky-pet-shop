@@ -59,13 +59,21 @@ const Dogs = () => {
           {dogs.map((dog) => {
             return (
               <PetCard
-                key={dog.id}
-                id={dog.id}
-                name={dog.breeds[0].name}
-                src={dog.url}
-                wiki={dog.breeds[0].wikipedia_url}
-                temperament={dog.breeds[0].temperament}
-                life={dog.breeds[0].life_span}
+              key={dog.id}
+              id={dog.id}
+              name={dog.breeds[0].name}
+              src={dog.url}
+              desc={dog.breeds[0].description}
+              country={dog.breeds[0].country_code}
+              wiki={dog.breeds[0].wikipedia_url}
+              vcahospitals_url={dog.breeds[0].vcahospitals_url}
+              vetstreet_url={dog.breeds[0].vetstreet_url}
+              temperament={dog.breeds[0].temperament}
+              life={dog.breeds[0].life_span}
+              adaptability={dog.breeds[0].adaptability}
+              intelligence={dog.breeds[0].intelligence}
+              social_needs={dog.breeds[0].social_needs}
+              energy_level={dog.breeds[0].energy_level}
               />
             );
           })}
