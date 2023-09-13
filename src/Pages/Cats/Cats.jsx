@@ -4,21 +4,24 @@ import axios from "axios";
 import PetCard from "../../Components/Ui/PetCard";
 import styles from "./Cats.module.css";
 import TypeButton from "./../../Components/Ui/TypeButton";
-
+import Loading from "../../Components/Loading/Loading";
 const Cats = () => {
   const [cats, setCats] = useState([]);
   const [selected, setSelected] = useState(
     "asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege"
   );
+  const [isLoading,setIsLoading]=useState(false);
+
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       let { data } = await axios(
         `https://api.thecatapi.com/v1/images/search?limit=20&breed_ids=${selected}&api_key=live_O1P6WzQTUCef1gD2qfZr2svMlVjslOIoiy9X8P01ZSpM9ZKPCQpWO5FUtta8yN3h`
       );
 
       setCats(data);
-      console.log(data)
+      setIsLoading(false);
     };
 
     fetchData();
@@ -31,6 +34,7 @@ const Cats = () => {
 
   return (
     <div className={styles.container}>
+      {isLoading&&<Loading/>}
       <div className={styles.hero}>
         <div className={styles.hero_caption}>
           <h2>From Furry Friends to Family Members</h2>

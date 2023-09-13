@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import CartItem from "../Cart/CartItem";
 import { useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 import styles from "./WishListModal.module.css";
+import Loading from "../Loading/Loading";
+
 
 const WishListModal = (props) => {
   const wishItems = useSelector((state) => state.wish.items);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
 
   return (
     <Modal
@@ -15,7 +22,8 @@ const WishListModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Body className={styles.body}>
+      <Modal.Body className={styles.body} onLoad={handleImageLoad}>
+      {isLoading && <Loading />}
         {wishItems.map((item) => (
           <Container>
             <CartItem

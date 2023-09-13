@@ -3,23 +3,40 @@ import styles from "./CartItem.module.css";
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../Store/cart-slice';
 import classes from './CartItemTwo.module.css';
+import { wishActions } from './../../Store/wish-slice';
 
 const CartItem = (props) => {
   const dispatch= useDispatch();
 
-  const addItemHandler=()=>{
-    dispatch(cartActions.addItemsToCart({
-      id:props.id,
-    }))
+  const addItemHandler=(isCart)=>{
+    if(isCart){
+      dispatch(cartActions.addItemsToCart({
+        id:props.id,
+      }))
+    }
+    else{
+      dispatch(wishActions.addItemsToWishList({
+        id:props.id,
+      }))
+    }
+ 
   }
   const id =props.id
-  const removeItemHandler=()=>{
-    dispatch(cartActions.removeItemFromCart(id))
+  const removeItemHandler=(isCart)=>{
+    if(isCart){
+      dispatch(cartActions.removeItemFromCart(id))
+    }
+    else{
+      dispatch(wishActions.removeItemsFromWishList(id))
+    }
   }
+
+ 
 
 
   const cssCLasses= props.wishList?styles:classes;
   const svgColor= props.wishList?"rgb(67, 184, 238)":"#6b6a6a";
+   
 
   return (
     <div className={`${cssCLasses.item_container} d-flex`}>
@@ -29,9 +46,9 @@ const CartItem = (props) => {
       <div className={cssCLasses.item_caption}>
         <h4 className={cssCLasses.item_title}>{props.name}</h4>
         <div className={cssCLasses.item_controls}>
-          <button onClick={removeItemHandler} className={cssCLasses.item_controls_plmi}>-</button>
+          <button onClick={()=>removeItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}>-</button>
           <span>{props.quantity}</span>
-          <button onClick={addItemHandler} className={cssCLasses.item_controls_plmi}>+</button>
+          <button onClick={()=>addItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}>+</button>
         </div>
         <button className={cssCLasses.item_bin}>
           <i className="fa-solid fa-trash-can"></i>

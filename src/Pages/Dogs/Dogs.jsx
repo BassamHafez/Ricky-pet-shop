@@ -4,19 +4,22 @@ import axios from "axios";
 import PetCard from "../../Components/Ui/PetCard";
 import styles from "./Dogs.module.css";
 import TypeButton from "./../../Components/Ui/TypeButton";
+import Loading from "../../Components/Loading/Loading";
 
 const Dogs = () => {
   const [dogs, setdogs] = useState([]);
   const [selected, setSelected] = useState("1,3,4,5,6,7,8,9,10,11");
-
+  const [isLoading,setIsLoading]=useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       let { data } = await axios(
         `https://api.thedogapi.com/v1/images/search?limit=30&breed_ids=${selected}&api_key=live_2KezZROYSVMIobsbx3rgXKK80nHNTjiwEeW2TezLDOCWKSIMuxp11MLd0wxnKCMD`
-      );
+        );
 
       setdogs(data);
+      setIsLoading(false);
     };
 
     fetchData();
@@ -29,6 +32,7 @@ const Dogs = () => {
 
   return (
     <div className={styles.container}>
+      {isLoading&&<Loading/>}
       <div className={styles.hero}>
         <div className={styles.hero_caption}>
           <h2>From Furry Friends to Family Members</h2>
@@ -72,3 +76,4 @@ const Dogs = () => {
 };
 
 export default Dogs;
+

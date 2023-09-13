@@ -26,12 +26,12 @@ reducers:{
             });
         }
     },
-    removeItemsToWishList(state,action){
+    removeItemsFromWishList(state,action){
         const  id = action.payload;
         const exisitngItem = state.items.find((item)=> item.id === id);
         state.totalQuantity--;
         if(exisitngItem.quantity===1){
-            state.items.filter((item)=> item.id !== id);
+            state.items=state.items.filter((item)=> item.id !== id);
         }
         else{
             exisitngItem.quantity--;
