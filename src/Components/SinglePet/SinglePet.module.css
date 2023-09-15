@@ -1,0 +1,121 @@
+.single_pet_container{
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #F3F5F6;
+}
+.row{
+    box-shadow:  0 0 5px rgba(0, 0, 0, 0.836);
+}
+.img_side{
+    background-image: url(../../images/bane.png);
+    background-color: var(--main_color);
+    flex-direction: column;
+}
+.pet_img{   
+    width:400px;
+    height: 400px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.pet_img img{
+    object-fit: cover;
+    object-position: 0 10%;
+}
+.reacts{
+    font-size: 22px;
+    padding: 5px;
+    width: 400px;
+    border-radius: 0 0 10px 10px;
+    color:rgb(67, 177, 140);
+    background-color: rgb(15, 1, 26);
+ 
+}
+.reacts span{
+    font-size: 18px;
+    color:var(--indigo);
+    font-weight: 700;
+}
+.reacts_love,.reacts_comment,.reacts_share{
+    transition: all .5s;
+    cursor: pointer;
+}
+.reacts_love:hover{
+    color: red;
+    transform: scale(1.3);
+}
+.reacts_comment:hover{
+    transform: scale(1.3);
+}
+.reacts_share:hover{
+    color:var(--indigo);
+    transform: scale(1.3);
+}
+.footer_cart, .footer_order{
+    padding:10px;
+    color: var(--main_color);
+    font-weight: 700;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin-inline: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.849);
+    transition: all .5s;
+}
+.footer_cart:hover, .footer_order:hover{
+    background-color: var(--main_color);
+    color: white;
+    transform: scale(1.2);
+}
+.footer_order{
+    background-color: var(--main_color);
+    color: white;
+}
+
+
+.caption{
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+}
+.header{
+    text-align: center;
+    padding: 10px;
+    border-bottom: #677279 1px solid;
+    margin-bottom: 10px;
+}
+
+.header h2{
+    font-size: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    color: var(--main_color);
+    margin-bottom: 20px;
+}
+.header p{
+    color: #677279;
+}
+.contacts{
+    font-size: 25px;
+    color: #677279;
+}
+
+.urls a{
+    padding: 10px 15px;
+    background-color: transparent;
+    color: var(--main_color);
+    border: 1px solid var(--main_color);
+    border-radius: 10px;
+    transition: all .5s;
+
+}
+.urls a:hover{
+    background-color:var(--main_color);
+    color:white;
+    border: 1px solid transparent;
+}
+.breed_for{
+    color: rgb(67, 177, 140);
+    font-size: 20px;
+    font-weight: 900;
+    font-family: var(--main_font);
+}

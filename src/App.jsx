@@ -11,7 +11,7 @@ import SinglePet from "./Components/SinglePet/SinglePet";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element:<Root />,
     errorElement: <Error/> ,
     children: [
       { index:true , element: <Home/> },
@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       { path: "cats", element: <Cats /> },
       { path: "birds", element: <Birds /> },
       { path: "cats/singlePet", element: <SinglePet /> },
+      { path: "dogs/singlePet", element: <SinglePet /> },
     ],
   },
 ]);

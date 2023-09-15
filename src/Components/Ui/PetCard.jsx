@@ -29,22 +29,39 @@ const PetCard = (props) => {
   }
 
   const sendDataToSinglePet=()=>{
-    dispatch(singlePetActions.sendData({
-      id:props.id,
-      name:props.name,
-      src:props.src,
-      desc:props.desc,
-      country:props.country,
-      wiki:props.wiki,
-      vcahospitals_url:props.vcahospitals_url,
-      vetstreet_url:props.vetstreet_url,
-      temperament:props.temperament,
-      life:props.life,
-      adaptability:props.adaptability,
-      intelligence:props.intelligence,
-      social_needs:props.social_needs,
-      energy_level:props.energy_level,
-    }))
+    if(props.type==='dog'){
+      dispatch(singlePetActions.sendDataFromDogs({
+        id:props.id,
+        name:props.name,
+        src:props.src,
+        height:props.height,
+        width:props.width,
+        temperament:props.temperament,
+        life:props.life,
+        bred_for:props.bred_for,
+        breed_group:props.breed_group,
+        weight_imperial:props.weight_imperial,
+        weight_metric:props.weight_metric,
+      }))
+    }
+    else{
+      dispatch(singlePetActions.sendDataFromCats({
+        id:props.id,
+        name:props.name,
+        src:props.src,
+        desc:props.desc,
+        country:props.country,
+        wiki:props.wiki,
+        vcahospitals_url:props.vcahospitals_url,
+        vetstreet_url:props.vetstreet_url,
+        temperament:props.temperament,
+        life:props.life,
+        adaptability:props.adaptability,
+        intelligence:props.intelligence,
+        social_needs:props.social_needs,
+        energy_level:props.energy_level,
+      }))
+    }
     navigate('singlePet');
   }
 

@@ -22,7 +22,7 @@ const Cats = () => {
 
       setCats(data);
       setIsLoading(false);
-      console.log(data)
+
     };
     fetchData();
   }, [selected]);
@@ -41,7 +41,8 @@ const Cats = () => {
           <TypeButton text="Shop Now" />
         </div>
       </div>
-      <Container>
+      <Container fluid className='px-lg-5'>
+
         <div className={`${styles.select_type} my-5`}>
           <select name="cats" id="cats" onChange={setSelectedHandler}>
             <option value="asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege">All Breeds</option>
@@ -57,7 +58,7 @@ const Cats = () => {
             <option value="aege">Aegean</option>
           </select>
         </div>
-        <Row className="p-5">
+        <Row className="mt-5 px-lg-5">
           {cats.map((cat) => {
             return (
               <PetCard
@@ -76,6 +77,7 @@ const Cats = () => {
                 intelligence={cat.breeds[0].intelligence}
                 social_needs={cat.breeds[0].social_needs}
                 energy_level={cat.breeds[0].energy_level}
+                type='cat'
               />
             );
           })}

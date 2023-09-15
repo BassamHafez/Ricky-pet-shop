@@ -22,12 +22,14 @@ body{
   overflow-x: hidden;
 }
 a{
-  text-decoration: none;
+  text-decoration: none !important;
+  outline: none;
+
 }
 button,input{
   outline: none;
 }
-.fab{
+.fab,.fa-solid{
   transition: all .5s;
 }
 .fa-facebook:hover {
@@ -35,12 +37,12 @@ button,input{
   cursor: pointer;
 
 }
-.fa-youtube:hover{
+.fa-youtube:hover,.fa-pinterest:hover{
 
   cursor: pointer;
   color: red;
 }
-.fa-tiktok:hover{
+.fa-tiktok:hover,.fa-envelope:hover{
 
   cursor: pointer;
   color: black;

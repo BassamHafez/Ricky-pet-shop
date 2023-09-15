@@ -20,6 +20,7 @@ const Dogs = () => {
 
       setdogs(data);
       setIsLoading(false);
+      console.log(data)
     };
 
     fetchData();
@@ -63,17 +64,15 @@ const Dogs = () => {
               id={dog.id}
               name={dog.breeds[0].name}
               src={dog.url}
-              desc={dog.breeds[0].description}
-              country={dog.breeds[0].country_code}
-              wiki={dog.breeds[0].wikipedia_url}
-              vcahospitals_url={dog.breeds[0].vcahospitals_url}
-              vetstreet_url={dog.breeds[0].vetstreet_url}
+              height={dog.height}
+              width={dog.width}
+              weight_imperial={dog.breeds[0].weight.imperial}
+              weight_metric={dog.breeds[0].weight.metric}
               temperament={dog.breeds[0].temperament}
+              bred_for={dog.breeds[0].bred_for}
+              breed_group={dog.breeds[0].breed_group}
               life={dog.breeds[0].life_span}
-              adaptability={dog.breeds[0].adaptability}
-              intelligence={dog.breeds[0].intelligence}
-              social_needs={dog.breeds[0].social_needs}
-              energy_level={dog.breeds[0].energy_level}
+              type='dog'
               />
             );
           })}

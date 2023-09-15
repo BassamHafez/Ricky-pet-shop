@@ -6,15 +6,15 @@
 }
 .card_parent{
     background-image: url(../../images/feets.png);
-    background-repeat: no-repeat;
-    background-position: 0 100%;
+    background-repeat:repeat-x;
+    background-position:100% 100%;
     background-color: var(--main_color);
     border-radius: 1.875rem;
     padding-bottom: 1.5625rem;
     height: 70%;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: center;    
     position: relative;
 }
 .card_content{

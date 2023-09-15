@@ -7,7 +7,7 @@ const singlePetSlice =createSlice({
         data:{}
     },
     reducers:{
-        sendData(state,action){
+        sendDataFromCats(state,action){
             const existingData = action.payload;
             state.data={
                 id:existingData.id,
@@ -24,6 +24,25 @@ const singlePetSlice =createSlice({
                 intelligence:existingData.intelligence,
                 social_needs:existingData.social_needs,
                 energy_level:existingData.energy_level,
+                type:'cat'
+                
+            }
+        },
+        sendDataFromDogs(state,action){
+            const existingData = action.payload;
+            state.data={
+                id:existingData.id,
+                name:existingData.name,
+                height:existingData.height,
+                width:existingData.width,
+                src:existingData.src,
+                temperament:existingData.temperament,
+                life:existingData.life,
+                bred_for:existingData.bred_for,
+                breed_group:existingData.breed_group,
+                weight_imperial:existingData.weight_imperial,
+                weight_metric:existingData.weight_metric,
+                type:'dog'
                 
             }
         },
