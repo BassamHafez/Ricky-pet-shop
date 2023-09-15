@@ -39,13 +39,13 @@ const SinglePet = () => {
   return (
     <>
       <div
-        className={`${styles.single_pet_container} d-flex flex-column justify-content-center align-items-center`}
+        className={styles.single_pet_container}
       >
-        <Container>
-          <Row className={`${styles.row} g-0 rounded overflow-hidden`}>
+        <Container fluid="lg">
+          <Row className={`${styles.row} bg-dark rounded overflow-hidden`}>
             <Col
               md={6}
-              className={`${styles.img_side} d-flex justify-content-center align-items-center`}
+              className={`${styles.img_side} d-flex flex-column justify-content-center align-items-center p-0`}
             >
               <div className={styles.pet_img}>
                 <img
@@ -73,7 +73,7 @@ const SinglePet = () => {
                //handle cat case
               <Col
                 md={6}
-                className="d-flex justify-content-center align-items-center"
+                className=" px-0"
               >
                 <div className={styles.caption}>
                   <div className={styles.header}>
@@ -113,7 +113,7 @@ const SinglePet = () => {
               //handle dog case
               <Col
                 md={6}
-                className="d-flex justify-content-center align-items-center"
+                className=" px-0"
               >
                 <div className={styles.caption}>
                   <div className={styles.header}>
@@ -147,7 +147,6 @@ const SinglePet = () => {
           </Row>
         </Container>
       </div>
-      )
     </>
   );
 };

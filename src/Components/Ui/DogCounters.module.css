@@ -1,5 +1,6 @@
 .counters{
     margin: 3.125rem 0;
+    padding: 0.625rem;
 }
 .counter_item_dog{
     display: flex;

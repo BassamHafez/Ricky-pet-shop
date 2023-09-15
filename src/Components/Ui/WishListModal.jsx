@@ -1,19 +1,26 @@
-import React, {useState } from "react";
+import React, { useState,useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import CartItem from "../Cart/CartItem";
 import { useSelector } from "react-redux";
-import { Container } from "react-bootstrap";
 import styles from "./WishListModal.module.css";
 import Loading from "../Loading/Loading";
-
 
 const WishListModal = (props) => {
   const wishItems = useSelector((state) => state.wish.items);
   const [isLoading, setIsLoading] = useState(true);
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
+  //comeback here
+  useEffect(() => {
+    let clr = setTimeout(() => {
+      setIsLoading(true);
+  
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+  
+    }, 0);
+  
+    return () => clearTimeout(clr);
+  }, []);
 
   return (
     <Modal
@@ -22,23 +29,24 @@ const WishListModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Body className={styles.body} onLoad={handleImageLoad}>
-      {isLoading && <Loading />}
+      <Modal.Body className={styles.body}>
+        {isLoading && <Loading />}
+        <div className={styles.close_btn}>
+          <button onClick={props.onHide}>
+            <i className="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
         {wishItems.map((item) => (
-          <Container>
             <CartItem
               key={item.id}
               id={item.id}
               name={item.name}
               src={item.src}
               quantity={item.quantity}
-              wishList='wishList'
+              wishList="wishList"
             />
-          </Container>
         ))}
-        <div className={styles.close_btn}>
-          <button onClick={props.onHide}><i className="fa-solid fa-circle-xmark"></i></button>
-        </div>
+
         <div className={styles.order_btn}>
           <button>Order</button>
         </div>

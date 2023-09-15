@@ -63,3 +63,10 @@
         width: auto;
     }
 }
+@media screen and (max-width:400px) {
+
+    .hero{
+        background-position: 60% 0; 
+    }
+
+}

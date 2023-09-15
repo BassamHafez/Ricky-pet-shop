@@ -8,7 +8,7 @@
 .footer h2{
     color: var(--main_color);
     font-weight: 900;
-    font-size: 60px;
+    font-size: 3.75rem;
     font-family: cursive;
 
 }
@@ -23,5 +23,14 @@
 @media screen and (min-width:1100px) {
     .footer_caption{
         width: 60%;
+    }
+}
+@media screen and (max-width:500px) {
+    .footer_caption{
+        width: 100%;
+        text-align: center;
+    }
+    .footer h2{
+        font-size: 2.1875rem;
     }
 }

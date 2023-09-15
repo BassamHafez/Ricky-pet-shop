@@ -20,7 +20,6 @@ const Dogs = () => {
 
       setdogs(data);
       setIsLoading(false);
-      console.log(data)
     };
 
     fetchData();

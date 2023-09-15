@@ -25,7 +25,7 @@ const CatCounters = (props) => {
       <i
         className={`${styles.icons} fa-solid fa-arrows-spin`}
       ></i>
-      <span>{props.life}</span>
+      <span className={styles.life_cat}>{props.life}</span>
       <p>life span</p>
     </div>
   </div>
