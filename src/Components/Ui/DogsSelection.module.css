@@ -1,0 +1,29 @@
+.select_type{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.select_type select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .5s;
+}
+.select_type select option{
+    color: black;
+
+}
+.select_type select option:hover{
+    background-color: var(--light);
+    cursor: pointer;
+}
+
+.select_type select:hover,
+.select_type select:focus {
+  border-color: var(--main_color);
+  color: var(--main_color);
+  outline: none;
+}
+

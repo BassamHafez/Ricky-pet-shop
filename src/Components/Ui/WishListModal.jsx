@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 const WishListModal = (props) => {
   const wishItems = useSelector((state) => state.wish.items);
   const [isLoading, setIsLoading] = useState(true);
-  //comeback here
+  
   useEffect(() => {
     let clr = setTimeout(() => {
       setIsLoading(true);

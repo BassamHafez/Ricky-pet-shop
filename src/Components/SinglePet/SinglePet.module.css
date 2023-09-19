@@ -8,6 +8,7 @@
 }
 .row{
     box-shadow:  0 0 0.3125rem rgba(0, 0, 0, 0.836);
+    background-color:white ;
 }
 .img_side{
     background-image: url(../../images/bane.png);
@@ -32,6 +33,7 @@
     background-color: rgb(15, 1, 26);
  
 }
+
 .reacts span{
     font-size: 1.125rem;
     color:var(--indigo);

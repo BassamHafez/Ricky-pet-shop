@@ -4,9 +4,13 @@ import {createSlice} from '@reduxjs/toolkit';
 const singlePetSlice =createSlice({
     name:'singlePet',
     initialState:{
-        data:{}
+        data:{},
+        isChanged:false
     },
     reducers:{
+        replaceData(state,action){
+            state.data=action.payload
+        },
         sendDataFromCats(state,action){
             const existingData = action.payload;
             state.data={
@@ -27,6 +31,7 @@ const singlePetSlice =createSlice({
                 type:'cat'
                 
             }
+            state.isChanged=true
         },
         sendDataFromDogs(state,action){
             const existingData = action.payload;
@@ -45,6 +50,8 @@ const singlePetSlice =createSlice({
                 type:'dog'
                 
             }
+            state.isChanged=true
+
         },
     }
 });

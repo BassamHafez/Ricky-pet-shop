@@ -42,7 +42,7 @@ const SinglePet = () => {
         className={styles.single_pet_container}
       >
         <Container fluid="lg">
-          <Row className={`${styles.row} bg-dark rounded overflow-hidden`}>
+          <Row className={`${styles.row} rounded overflow-hidden`}>
             <Col
               md={6}
               className={`${styles.img_side} d-flex flex-column justify-content-center align-items-center p-0`}

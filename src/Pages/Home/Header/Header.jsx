@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.css';
 import { Container,Row,Col } from 'react-bootstrap';
 
-import headerDog from '../../../images/ricky-1527607647.png';
+import headerDog from '../../../images/happy.png';
 import circles from '../../../images/ricky-1511708186.png';
 import MainButton from './../../../Components/Ui/MainButton';
 
