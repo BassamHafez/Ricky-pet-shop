@@ -7,7 +7,9 @@
   --pink:#c978ff;
   --light:#CFF1FF;
   --dark_light:#26b3f0;
+  --indigo_gradiant:linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
   --main_font:cursive;
+  --secondary_font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 *{

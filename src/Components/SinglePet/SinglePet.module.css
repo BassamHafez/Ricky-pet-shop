@@ -54,26 +54,6 @@
     color:var(--indigo);
     transform: scale(1.3);
 }
-.footer_cart, .footer_order{
-    padding:0.625rem;
-    color: var(--main_color);
-    font-weight: 700;
-    background-color: white;
-    border: none;
-    border-radius: 0.3125rem;
-    margin-inline: 1.25rem;
-    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.849);
-    transition: all .5s;
-}
-.footer_cart:hover, .footer_order:hover{
-    background-color: var(--main_color);
-    color: white;
-    transform: scale(1.2);
-}
-.footer_order{
-    background-color: var(--main_color);
-    color: white;
-}
 
 
 .caption{

@@ -1,0 +1,11 @@
+.login{
+    background:var(--indigo_gradiant);
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.625rem;
+    margin-inline: 0.9375rem;
+    color: white;
+    transition: all .5s;
+}
+.login:hover{
+    border-radius: 0 1.875rem  0 1.875rem ;
+}

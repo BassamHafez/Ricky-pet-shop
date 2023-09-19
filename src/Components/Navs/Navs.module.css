@@ -18,7 +18,7 @@
     margin-inline: 0.625rem;
     font-size: 1.25rem;
     padding: 5px;
-    font-family: cursive;
+    font-family: var(--main_font);
     font-weight: 700;
     border-bottom: transparent 3px solid;
     transition: all .3s;
@@ -30,5 +30,13 @@
     color:var(--pink);
     border-bottom: var(--pink) 3px solid;
 
+}
+
+.no_border{
+    font-size: 16px !important;
+    font-family: var(--secondary_font) !important;
+}
+.no_border:hover{
+    border-bottom: transparent 3px solid !important; 
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer className={`${styles.footer} d-flex align-items-center`}>
       <div className={`${styles.footer_caption} px-5 d-flex flex-column align-items-center justify-content-center`}>

@@ -1,5 +1,5 @@
 .main_button{
-    background:linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
+    background:var(--indigo_gradiant);
     color: white;
     padding:0.9375rem 1.25rem;
     font-size: 1.25rem;
@@ -26,6 +26,7 @@
 }
 .main_button:hover{
     transform: scale(1.2);
+    border-radius: 3.125rem 0 3.125rem 0;
 }
 .main_button:hover .main_layer_button{
     animation-name: transButton;

@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { cartActions } from "./../../Store/cart-slice";
 import DogCounters from "../Ui/DogCounters";
 import CatCounters from "../Ui/CatCounters";
+import CommonButton from "../Ui/CommonButton";
 
 
 const SinglePet = () => {
@@ -99,13 +100,8 @@ const SinglePet = () => {
                   </div>
                   <CatCounters intelligence={info.intelligence} energy_level={info.energy_level} social_needs={info.social_needs} life={info.life}/>
                   <div className="mt-3 text-center">
-                    <button
-                      onClick={addSinglePetToCart}
-                      className={styles.footer_cart}
-                    >
-                      Add To Cart
-                    </button>
-                    <button className={styles.footer_order}>Order Now </button>
+                    <CommonButton text='Add To Cart' onClick={addSinglePetToCart} btnType='one'/>
+                    <CommonButton text='Order Now'  btnType='two'/>
                   </div>
                 </div>
               </Col>

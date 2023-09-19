@@ -12,6 +12,7 @@ import sendCartIntoLocalStorage, { getCartFromLocalStorage } from "./Store/cart-
 import { useEffect } from "react";
 import sendDataToWish, { getDataFromWish } from "./Store/wish-actions";
 import saveDataInLocalStorage, { getSavedDataFromLocalStorage } from "./Store/singlePet-actions";
+import Login from "./Pages/Login/Login";
 
 let isFirstTime =true;
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "birds", element: <Birds /> },
       { path: "cats/singlePet", element: <SinglePet /> },
       { path: "dogs/singlePet", element: <SinglePet /> },
+      { path: "login", element: <Login/> },
     ],
   },
 ]);

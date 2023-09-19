@@ -1,0 +1,23 @@
+.btn_one, .btn_two{
+    padding:0.625rem;
+    color: var(--main_color);
+    font-weight: 700;
+    background-color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    margin-inline: 1.25rem;
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.849);
+    transition: all .5s;
+}
+.btn_one:hover{
+    background-color: var(--main_color);
+    color: white;
+}
+.btn_two:hover{
+    background-color: var(--indigo);
+    color: black;
+}
+.btn_two{
+    background-color: var(--main_color);
+    color: white;
+}
