@@ -5,11 +5,11 @@ const CommonButton = (props) => {
   return (
     <>
       {props.btnType === 'one' ? (
-        <button onClick={props.onClick} className={`${styles.btn_one} ${props.width==='full' && 'w-100' }`}>
+        <button type={props.type} onClick={props.onClick} className={`${styles.btn_one} ${props.width==='full' && 'w-100' } ${props.margin&&'mx-4' }`}>
           {props.text}
         </button>
       ) : (
-        <button className={`${styles.btn_two} ${props.width==='full' && 'w-100' }`}>{props.text}</button>
+        <button onClick={props.onClick} className={`${styles.btn_two}  ${props.width==='full' && 'w-100' } ${props.margin&&'mx-4' }`}>{props.text}</button>
       )}
     </>
   );

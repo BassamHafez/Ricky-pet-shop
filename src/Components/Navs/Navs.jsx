@@ -1,15 +1,28 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React,{useState} from "react";
+import { NavLink, Link, useRouteLoaderData,useNavigate } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from "./Navs.module.css";
 import CartButton from "../Ui/CartButton";
 import WishListIcon from "../Ui/WishListIcon";
-
 import logo from "../../images/logo.png";
 import LoginButton from "../Ui/LoginButton";
+import ConfirmationModal from "../Ui/ConfirmationModal";
 
 const Navs = () => {
+  const [show, setShow] = useState(false);
+  const token = useRouteLoaderData("root");
+  const navigate=useNavigate();
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
+  const navigateToLogoutPage=()=>{
+    setShow(false);
+    navigate('logout')
+}
   return (
+    <>
+   
     <Navbar
       className={`${styles.navbar_class} navbar-dark`}
       sticky="top"
@@ -60,14 +73,23 @@ const Navs = () => {
           <div className="d-flex justify-content-end ms-auto">
             <WishListIcon />
             <CartButton />
-
-            <Link to="login" className={styles.no_border}>
-              <LoginButton />
-            </Link>
+            {token ? (
+              <Link onClick={handleShow} className={styles.no_border}>
+                <LoginButton />
+              </Link>
+            ) : (
+              <Link to="/login?mode=signin" className={styles.no_border}>
+                <LoginButton />
+              </Link>
+            )}
           </div>
-        </Navbar.Collapse> 
+        </Navbar.Collapse>
       </Container>
     </Navbar>
+
+    <ConfirmationModal pageType='logout' onClick={navigateToLogoutPage} handleClose={handleClose} show={show}/>
+
+    </>
   );
 };
 

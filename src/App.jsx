@@ -13,6 +13,9 @@ import { useEffect } from "react";
 import sendDataToWish, { getDataFromWish } from "./Store/wish-actions";
 import saveDataInLocalStorage, { getSavedDataFromLocalStorage } from "./Store/singlePet-actions";
 import Login from "./Pages/Login/Login";
+import { action as formAction } from "./Pages/Login/Login";
+import getToken from "./Auth/Auth";
+import { logout } from "./Auth/Auth";
 
 let isFirstTime =true;
 
@@ -21,6 +24,8 @@ const router = createBrowserRouter([
     path: "/",
     element:<Root />,
     errorElement: <Error/> ,
+    id:'root',
+    loader:getToken,
     children: [
       { index:true , element: <Home/> },
       { path: "dogs", element: <Dogs /> },
@@ -28,7 +33,8 @@ const router = createBrowserRouter([
       { path: "birds", element: <Birds /> },
       { path: "cats/singlePet", element: <SinglePet /> },
       { path: "dogs/singlePet", element: <SinglePet /> },
-      { path: "login", element: <Login/> },
+      { path: "login", element: <Login/> , action:formAction },
+      {path:"logout",loader:logout}
     ],
   },
 ]);
@@ -56,9 +62,9 @@ function App() {
     
       dispatch(sendCartIntoLocalStorage(cartItems));
     }
-  },[cartItems,dispatch])
-  //send and receive data from wishList
+  },[cartItems,dispatch]);
 
+  //send and receive data from wishList
   useEffect(()=>{
     if(JSON.parse(localStorage.getItem('wishList'))){
       dispatch(getDataFromWish())

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React,{useState} from 'react';
+import {useNavigate,useRouteLoaderData } from 'react-router-dom';
 import { Col } from 'react-bootstrap';
 import styles from './PetCard.module.css';
 import { useDispatch } from 'react-redux';
@@ -7,10 +7,14 @@ import { cartActions } from '../../Store/cart-slice';
 import { wishActions } from '../../Store/wish-slice';
 import MainButton from './MainButton';
 import { singlePetActions } from '../../Store/singlePet-slice';
+import ConfirmationModal from './ConfirmationModal';
 
 const PetCard = (props) => {
+    const [show, setShow] = useState(false);
+
   const navigate=useNavigate();
   const dispatch = useDispatch();
+  const token = useRouteLoaderData('root');
 
   const addToCartHandler=()=>{
     dispatch(cartActions.addItemsToCart({
@@ -65,7 +69,15 @@ const PetCard = (props) => {
     navigate('singlePet');
   }
 
+  const navigateToLoginPage=()=>{
+      navigate('/login?mode=signin')
+  }
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   return (
+    <>
     <Col sm={6} md={4} className={styles.card} key={props.id}>
       <div className={styles.card_parent}>
         <div className={styles.card_content}>
@@ -76,14 +88,17 @@ const PetCard = (props) => {
                 <h5>{props.name}</h5>
                 <p  className={styles.life}><span>life_span </span>: {props.life}</p>
                 <p className={styles.temperament} >{props.temperament}</p>
-                <button onClick={addToCartHandler} title='add to cart'  className={styles.card_cart}><i className="fa-solid fa-cart-plus"></i></button>
-                <button onClick={sendDataToSinglePet}  title='quick view' className={styles.card_eye}><i className="fa-solid fa-eye"></i></button>
-                <button onClick={addtoWishHandler}  title='add to wishlist' className={styles.card_wish}><i className="fa-regular fa-heart"></i></button>
+                <button onClick={token?addToCartHandler:handleShow} title='add to cart'  className={styles.card_cart}><i className="fa-solid fa-cart-plus"></i></button>
+                <button onClick={token?sendDataToSinglePet:handleShow }  title='quick view' className={styles.card_eye}><i className="fa-solid fa-eye"></i></button>
+                <button onClick={token?addtoWishHandler:handleShow}  title='add to wishlist' className={styles.card_wish}><i className="fa-regular fa-heart"></i></button>
             </div>
         </div>
             <MainButton text='Read More' />
         </div>
     </Col>
+
+    <ConfirmationModal pageType='login' onClick={navigateToLoginPage} handleClose={handleClose} show={show}/>
+    </>
   )
 }
 

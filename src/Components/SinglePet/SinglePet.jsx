@@ -11,6 +11,7 @@ import CommonButton from "../Ui/CommonButton";
 
 const SinglePet = () => {
 
+
   const info = useSelector((state) => state.singlePet.data);
   const dispatch = useDispatch();
   const [isCat, setIsCat] = useState(true);
@@ -24,6 +25,9 @@ const SinglePet = () => {
       })
     );
   };
+
+
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -100,8 +104,8 @@ const SinglePet = () => {
                   </div>
                   <CatCounters intelligence={info.intelligence} energy_level={info.energy_level} social_needs={info.social_needs} life={info.life}/>
                   <div className="mt-3 text-center">
-                    <CommonButton text='Add To Cart' onClick={addSinglePetToCart} btnType='one'/>
-                    <CommonButton text='Order Now'  btnType='two'/>
+                    <CommonButton text='Add To Cart' onClick={addSinglePetToCart} btnType='one'  margin={true}/>
+                    <CommonButton text='Order Now'  btnType='two'  margin={true}/>
                   </div>
                 </div>
               </Col>
@@ -129,13 +133,8 @@ const SinglePet = () => {
                   </div>
                   <DogCounters width={info.width} height={info.height} weight_metric={info.weight_metric} life={info.life}/>
                   <div className="mt-3 text-center">
-                    <button
-                      onClick={addSinglePetToCart}
-                      className={styles.footer_cart}
-                    >
-                      Add To Cart
-                    </button>
-                    <button className={styles.footer_order}>Order Now </button>
+                    <CommonButton text='Add To Cart' onClick={addSinglePetToCart} btnType='one' margin={true}/>
+                    <CommonButton text='Order Now'  btnType='two'  margin={true}/>
                   </div>
                 </div>
               </Col>
