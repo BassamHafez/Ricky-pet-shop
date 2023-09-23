@@ -1,26 +1,12 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import CartItem from "../Cart/CartItem";
 import { useSelector } from "react-redux";
 import styles from "./WishListModal.module.css";
-import Loading from "../Loading/Loading";
+import NoItems from "./NoItems";
 
 const WishListModal = (props) => {
   const wishItems = useSelector((state) => state.wish.items);
-  const [isLoading, setIsLoading] = useState(true);
-  
-  useEffect(() => {
-    let clr = setTimeout(() => {
-      setIsLoading(true);
-  
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-  
-    }, 0);
-  
-    return () => clearTimeout(clr);
-  }, []);
 
   return (
     <Modal
@@ -30,13 +16,13 @@ const WishListModal = (props) => {
       centered
     >
       <Modal.Body className={styles.body}>
-        {isLoading && <Loading />}
         <div className={styles.close_btn}>
           <button onClick={props.onHide}>
             <i className="fa-solid fa-circle-xmark"></i>
           </button>
         </div>
-        {wishItems.map((item) => (
+        {wishItems.length > 0 ? (
+          wishItems.map((item) => (
             <CartItem
               key={item.id}
               id={item.id}
@@ -45,11 +31,16 @@ const WishListModal = (props) => {
               quantity={item.quantity}
               wishList="wishList"
             />
-        ))}
+          ))
+        ) : (
+          <NoItems onClick={props.onHide} />
+        )}
 
-        <div className={styles.order_btn}>
-          <button>Order</button>
-        </div>
+        {wishItems.length > 0 && (
+          <div className={styles.order_btn}>
+            <button>Order</button>
+          </div>
+        )}
       </Modal.Body>
     </Modal>
   );

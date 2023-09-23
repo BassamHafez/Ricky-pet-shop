@@ -10,5 +10,11 @@ export const logout =()=>{
     return redirect('/login?mode=signin')
 }
 
+export const checkToken=()=>{
+    if(!getToken()){
+        return redirect('/login?mode=signin')
+    }
+     return null;
+}
 
 export default getToken;

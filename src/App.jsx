@@ -14,8 +14,7 @@ import sendDataToWish, { getDataFromWish } from "./Store/wish-actions";
 import saveDataInLocalStorage, { getSavedDataFromLocalStorage } from "./Store/singlePet-actions";
 import Login from "./Pages/Login/Login";
 import { action as formAction } from "./Pages/Login/Login";
-import getToken from "./Auth/Auth";
-import { logout } from "./Auth/Auth";
+import getToken,{ logout,checkToken } from "./Auth/Auth";
 
 let isFirstTime =true;
 
@@ -31,8 +30,8 @@ const router = createBrowserRouter([
       { path: "dogs", element: <Dogs /> },
       { path: "cats", element: <Cats /> },
       { path: "birds", element: <Birds /> },
-      { path: "cats/singlePet", element: <SinglePet /> },
-      { path: "dogs/singlePet", element: <SinglePet /> },
+      { path: "cats/singlePet", element: <SinglePet />,loader:checkToken },
+      { path: "dogs/singlePet", element: <SinglePet />,loader:checkToken },
       { path: "login", element: <Login/> , action:formAction },
       {path:"logout",loader:logout}
     ],
