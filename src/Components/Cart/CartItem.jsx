@@ -31,6 +31,21 @@ const CartItem = (props) => {
     }
   }
 
+  const removeFullItemHandler=(isCart)=>{
+    if(isCart){
+      dispatch(cartActions.removeFullItemFromCart({
+        id:props.id,
+        quantity:props.quantity
+      }))
+    }
+    else{
+      dispatch(wishActions.removeFullItemFromWishList({
+        id:props.id,
+        quantity:props.quantity
+      }))
+    }
+  }
+
  
 
 
@@ -50,7 +65,7 @@ const CartItem = (props) => {
           <span>{props.quantity}</span>
           <button onClick={()=>addItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}>+</button>
         </div>
-        <button className={cssCLasses.item_bin}>
+        <button onClick={()=>removeFullItemHandler(!props.wishList)} className={cssCLasses.item_bin}>
           <i className="fa-solid fa-trash-can"></i>
         </button>
         <button className={cssCLasses.item_share}>

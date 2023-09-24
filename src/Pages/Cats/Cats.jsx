@@ -15,6 +15,12 @@ const Cats = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [newError, setNewError] = useState(false);
 
+
+  const setSelectedHandler = (e) => {
+    let type = e.target.value;
+    setSelected(type);
+  };
+
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -36,16 +42,15 @@ const Cats = () => {
     };
     fetchData();
   }, [selected]);
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 
-  const setSelectedHandler = (e) => {
-    let type = e.target.value;
-    setSelected(type);
-  };
 
   return (
     <>
       {newError ? (
-        <Error nav={false} />
+        <Error nav={false} text="couldn't fetch resources or data please try again later" />
       ) : (
         <div className={styles.container}>
           {isLoading && <Loading />}

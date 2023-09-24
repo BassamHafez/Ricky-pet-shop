@@ -1,0 +1,78 @@
+.caros{
+    position: relative;
+}
+
+.caros_item img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.caros_layer{
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.caros_caption{
+    position: absolute;
+    left:8% !important;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.625rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caros_caption h2{
+    font-size: 4.375rem;
+    font-weight: 900;
+    font-family:cursive;
+}
+.caros_caption p{
+    font-size: 1.5625rem;
+    font-family:cursive;
+}
+.slide_img{
+    position: absolute;
+    right: 3%;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.slide_img img{
+    transition: all 1s;
+
+}
+.slide_img:hover img{
+    transform: rotate(-2deg);
+}
+
+
+@media screen and (max-width:875px) {
+    .caros_caption{
+        left: 5% !important;
+    }
+    .slide_img{
+        right: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+     .slide_img{
+        width: 100%;
+     }
+     .caros_caption{
+        top: 85%;
+        left: 50% !important;
+        transform: translate(-50%,-85%);
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+     }
+    
+}

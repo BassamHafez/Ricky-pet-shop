@@ -23,6 +23,20 @@ body{
   background-color: #edd0f7 !important;
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar{
+  background-color:var(--main_color);
+  position: relative;
+}
+::-webkit-scrollbar-track{
+  border-radius: 50%;
+  background-color:rgb(212, 212, 212);
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main_color);
+  border-radius: 10px;
+}
+
 a{
   text-decoration: none !important;
   outline: none;
@@ -60,7 +74,29 @@ button,input{
   color:  #1DA1F2 ;
 }
 
-
+.carousel-control-prev-icon,.carousel-control-next-icon{
+  background-color: var(--main_color);
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  opacity:0;
+  transition: opacity .6s;
+}
+.carousel-control-prev:hover .carousel-control-prev-icon,.carousel-control-next:hover .carousel-control-next-icon{
+  opacity: 1;
+}
+.carousel-control-prev-icon{
+  margin-right: 50px;
+}
+.carousel-control-next-icon{
+  margin-left: 50px;
+}
+.carousel-indicators button{
+  border-radius: 50% !important;
+  padding: 10px 5px !important;
+}
+.carousel-indicators .active{
+  background-color: var(--main_color) !important;
+}
 @media screen and (max-width:768px) {
   body,html{
     font-size: 14px;

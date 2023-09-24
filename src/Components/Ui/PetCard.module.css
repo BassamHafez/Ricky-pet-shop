@@ -64,11 +64,12 @@
     align-items: center;
 }
 .card_caption h5{
-
     color: black;
     font-weight: 700;
     margin-top: 0.625rem;
-
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card_button_one{
     padding:0.625rem;

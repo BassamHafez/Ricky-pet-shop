@@ -19,6 +19,9 @@ const Error = (props) => {
       message=JSON.parse(error.data).message;
     }  
   }
+  if(props.text){
+    message=props.text;
+  }
 
   return (
     <>

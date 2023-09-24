@@ -4,7 +4,6 @@ import axios from "axios";
 import PetCard from "../../Components/Ui/PetCard";
 import styles from "./Dogs.module.css";
 import Loading from "../../Components/Loading/Loading";
-import HeroOne from "../../Components/Ui/HeroOne";
 import DogsSelection from "../../Components/Ui/DogsSelection";
 import Error from "./../../Components/Error/Error";
 import CarouselFade from "../../Components/Ui/CarouselFade";
@@ -18,7 +17,11 @@ const Dogs = () => {
   const allDogs =
     "1,5,6,7,8,9,10,12,13,14,18,19,23,24,101,103,111,114,121,124,125,130";
     const [selected, setSelected] = useState(allDogs);
-
+    const setSelectedHandler = (e) => {
+      let type = e.target.value;
+      setSelected(type);
+    };
+    
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -42,16 +45,15 @@ const Dogs = () => {
 
     fetchData();
   }, [selected]);
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 
-  const setSelectedHandler = (e) => {
-    let type = e.target.value;
-    setSelected(type);
-  };
 
   return (
     <>
       {newError ? (
-        <Error nav={false}/>
+        <Error nav={false} text="couldn't fetch resources or data please try again later"/>
       ) : (
         <div className={styles.container}>
           {isLoading && <Loading />}
