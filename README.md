@@ -1,2 +1,2 @@
-<h6>Pet Shop: A Complete E-commerce Application for Cats, Dogs, and Birds</h6>
+<h3>Pet Shop: A Complete E-commerce Application for Cats, Dogs, and Birds</h3>
 Pet Shop is a comprehensive e-commerce application built using React. It offers a delightful shopping experience for pet lovers, specializing in cats, dogs, and birds. The application includes various features such as wishlist, cart management, detailed information about each pet, and a user-friendly interface with login and registration.
