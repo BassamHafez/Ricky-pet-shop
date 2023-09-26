@@ -97,6 +97,7 @@ button,input{
 .carousel-indicators .active{
   background-color: var(--main_color) !important;
 }
+
 @media screen and (max-width:768px) {
   body,html{
     font-size: 14px;

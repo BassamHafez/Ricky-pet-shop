@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "./MainBody.module.css";
 import MainButton from "../../../Components/Ui/MainButton";
 import Swipper from "../../../Components/Swipper/Swipper";
-
+import { Link } from "react-router-dom";
 import cat from "../../../images/ricky-1502008994.png";
 import dogType from "../../../images/ricky-1502288440.png";
 import catType from "../../../images/ricky-1608825252.png";
@@ -12,6 +12,7 @@ import mouseType from "../../../images/ricky-1502065222.png";
 import reptilesType from "../../../images/ricky-1502869541.png";
 import birdType from "../../../images/ricky-1502322429.png";
 import babyCute from "../../../images/ricky-1655285879.png";
+import BonesBackground from "../../../Components/Ui/BonesBackground";
 
 const MainBody = () => {
   return (
@@ -54,14 +55,16 @@ const MainBody = () => {
       </section>
 
       <section className={`${styles.third_sec} mb-5`}>
+        <BonesBackground dir='left'/>
         <Container fluid className="p-5">
           <Row>
             <Col className={`${styles.pet_types} p-5 `} sm={6} md={4}>
-              <img src={dogType} alt="dogs" />
+              <Link to='dogs'><img src={dogType} alt="dogs" /></Link>
               <h3>Dogs</h3>
             </Col>
             <Col className={`${styles.pet_types} p-5 `} sm={6} md={4}>
-              <img src={catType} alt="cats" /> <h3>Cats</h3>
+              <Link to='cats'><img src={catType} alt="cats" /></Link>
+               <h3>Cats</h3>
             </Col>
             <Col className={`${styles.pet_types} p-5 `} sm={6} md={4}>
               <img src={fishType} alt="fish" /> <h3>Fish</h3>
@@ -73,13 +76,15 @@ const MainBody = () => {
               <img src={reptilesType} alt="reptiles" /> <h3>Reptiles</h3>
             </Col>
             <Col className={`${styles.pet_types} p-5 `} sm={6} md={4}>
-              <img src={birdType} alt="birds" /> <h3>Birds</h3>
+              <Link to='birds'><img src={birdType} alt="birds" /></Link>
+               <h3>Birds</h3>
             </Col>
           </Row>
         </Container>
       </section>
 
       <section className={`${styles.fourth_sec} mb-5`}>
+        <BonesBackground dir='left'/>
         <div className={styles.fourth_sec_title}>
           <h2>Testimonials</h2>
         </div>

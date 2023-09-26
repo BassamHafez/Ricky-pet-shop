@@ -71,7 +71,9 @@ https://parkofideas.com/ricky/demo/home-8/
 
     /* _____________________________________________________________________________________ */
     /* start third section */
-    
+    .third_sec{
+        position: relative;
+    }
     .pet_types img{
         cursor: pointer;
         transition: all .5s;
@@ -91,6 +93,7 @@ https://parkofideas.com/ricky/demo/home-8/
     /* start third section */
     .fourth_sec{
         padding:2.5rem;
+        position: relative;
     }
 
     .fourth_sec_title{

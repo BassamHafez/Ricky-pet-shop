@@ -44,12 +44,20 @@ const InputForm = () => {
             email: data.errors.email.message || "",
             password: "",
           });
-          console.log("jjkjjjk");
+          return;
+        }
+        else if(!data.errors.email){
+          setError({
+            email: "",
+            password: data.errors.password.message || "",
+            
+          });
           return;
         }
         setError({
           email: data.errors.email.message || "",
           password: data.errors.password.message || "",
+          
         });
         return;
       }
@@ -85,12 +93,12 @@ const InputForm = () => {
         onClick={clearEmailField}
       />
       {error.email && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="primary">
+        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
           {error.email}
         </Alert>
       )}
       {isEmail && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="primary">
+        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
           {isEmail}
         </Alert>
       )}
@@ -104,12 +112,12 @@ const InputForm = () => {
         onClick={clearPasswordField}
       />
       {error.password && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="primary">
+        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
           {error.password}
         </Alert>
       )}
       {isPassword && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="primary">
+        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
           {isPassword}
         </Alert>
       )}

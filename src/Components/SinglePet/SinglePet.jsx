@@ -11,7 +11,6 @@ import CommonButton from "../Ui/CommonButton";
 
 const SinglePet = () => {
 
-
   const info = useSelector((state) => state.singlePet.data);
   const dispatch = useDispatch();
   const [isCat, setIsCat] = useState(true);
@@ -25,9 +24,6 @@ const SinglePet = () => {
       })
     );
   };
-
-
- 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -99,8 +95,8 @@ const SinglePet = () => {
                     <a href={info.wiki} target="_blank" rel="noreferrer">
                       wikipedia
                     </a>
-                    <a href={info.vcahospitals_url}>vcahospitals</a>
-                    <a href={info.vetstreet_url}>vetstreet</a>
+                    <a href={info.vcahospitals_url} target="_blank" rel="noreferrer" >vcahospitals</a>
+                    <a href={info.vetstreet_url} target="_blank" rel="noreferrer">vetstreet</a>
                   </div>
                   <CatCounters intelligence={info.intelligence} energy_level={info.energy_level} social_needs={info.social_needs} life={info.life}/>
                   <div className="mt-3 text-center">

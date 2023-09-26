@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import styles from "./PetCard.module.css";
@@ -8,13 +8,26 @@ import { wishActions } from "../../Store/wish-slice";
 import MainButton from "./MainButton";
 import { singlePetActions } from "../../Store/singlePet-slice";
 import ConfirmationModal from "./ConfirmationModal";
+import ToastsAlert from "./ToastsAlert";
 
 const PetCard = (props) => {
   const [show, setShow] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toaastText,setToastText]=useState("added")
+  const [isLongName,setIsLongName] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = useRouteLoaderData("root");
+
+
+  const showToastHandler=()=>{
+    setShowToast(true)
+  };
+
+  const hideToastHandler=()=>{
+    setShowToast(false)
+  };
 
   const addToCartHandler = () => {
     dispatch(
@@ -24,6 +37,8 @@ const PetCard = (props) => {
         src: props.src,
       })
     );
+    showToastHandler();
+    setToastText("added to your Cart");
   };
 
   const addtoWishHandler = () => {
@@ -34,6 +49,8 @@ const PetCard = (props) => {
         src: props.src,
       })
     );
+    showToastHandler();
+    setToastText("added to your Wish List");
   };
 
   const sendDataToSinglePet = () => {
@@ -83,6 +100,15 @@ const PetCard = (props) => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
+  useEffect(()=>{
+    if(props.name==='American Eskimo Dog (Miniature)'){
+      setIsLongName(true)
+    }
+    else{
+      setIsLongName(false)
+    }
+  },[props.name])
+
   return (
     <>
       <Col sm={6} md={4} className={styles.card} key={props.id}>
@@ -92,13 +118,13 @@ const PetCard = (props) => {
               <img src={props.src} alt={props.name} />
             </div>
             <div className={styles.card_caption}>
-              <h5>{props.name}</h5>
+              <h5>{isLongName?'American Miniature':props.name}</h5>
               <p className={styles.life}>
                 <span>life_span </span>: {props.life}
               </p>
               <p className={styles.temperament}>{props.temperament}</p>
               <button
-                onClick={token ? addToCartHandler : handleShow}
+                onClick={addToCartHandler}
                 title="add to cart"
                 className={styles.card_cart}
               >
@@ -130,6 +156,8 @@ const PetCard = (props) => {
         handleClose={handleClose}
         show={show}
       />
+
+      <ToastsAlert text={toaastText} show={showToast} onHideToastHandler={hideToastHandler} />
     </>
   );
 };
