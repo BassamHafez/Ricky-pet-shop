@@ -1,6 +1,7 @@
 .loading_layer{
     background-color:#FEFEFE;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -8,8 +9,18 @@
     left: 0;
     bottom: 0;
     right: 0;
+    font-weight: 700;
     z-index: 10;
+    color: var(--main_color);
 }
-.loading_layer img{
-    width: 200px;
+.loading_layer h3{
+  color: black;
 }
+/* 
+.dog{
+    color: rgb(56, 5, 5);
+}
+
+.cat{
+    color: rgb(141, 113, 20);
+} */

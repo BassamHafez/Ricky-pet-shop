@@ -18,7 +18,7 @@ const Navs = () => {
 
   const navigateToLogoutPage=()=>{
     setShow(false);
-    navigate('logout')
+    navigate('logout');
 }
   return (
     <>

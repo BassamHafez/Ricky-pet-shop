@@ -18,9 +18,9 @@ const Home = () => {
       return () => window.removeEventListener("load", onPageLoad);
     }
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo(0, 0);
-  })
+  });
 
   return (
     <>

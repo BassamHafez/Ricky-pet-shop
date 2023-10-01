@@ -1,0 +1,11 @@
+.header_img{
+    height: 200px;
+    min-width: 300px;
+    background-color: gray;
+    border-radius:5px;
+}   
+.btn{
+    background-color: var(--main_color) !important;
+    outline: none;
+    border: none;
+}

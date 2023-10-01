@@ -19,7 +19,7 @@ import saveDataInLocalStorage, {
 import Login from "./Pages/Login/Login";
 import { action as formAction } from "./Pages/Login/Login";
 import getToken, { logout, checkToken } from "./Auth/Auth";
-
+import { QueryClientProvider,QueryClient } from "@tanstack/react-query";
 let isFirstTime = true;
 
 const router = createBrowserRouter([
@@ -99,7 +99,9 @@ function App() {
     }
   }, [singlePet, dispatch]);
 
-  return <RouterProvider router={router} />;
+  const queryClient=new QueryClient()
+
+  return <QueryClientProvider client={queryClient}><RouterProvider router={router} /></QueryClientProvider>;
 }
 
 export default App;

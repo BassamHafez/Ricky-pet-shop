@@ -9,7 +9,7 @@ import MainButton from './../../../Components/Ui/MainButton';
 const Header = () => {
   return (
     <header className={styles.header}>
-     <div className={styles.header_circles}><img src={circles} alt="circles-background" /></div>
+     <div className={styles.header_circles}><img src={circles} className='w-100' alt="circles-background" /></div>
       <Container fluid>
       <Row className={`${styles.header_rows} row justify-content-between`}>
         <Col md={6} className={styles.header_caption}>

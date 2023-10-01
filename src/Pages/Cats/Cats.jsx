@@ -1,59 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import axios from "axios";
 import PetCard from "../../Components/Ui/PetCard";
 import styles from "./Cats.module.css";
 import Loading from "../../Components/Loading/Loading";
 import HeroOne from "../../Components/Ui/HeroOne";
 import DogsSelection from "../../Components/Ui/DogsSelection";
 import Error from "../../Components/Error/Error";
+import { useQuery } from "@tanstack/react-query";
+import { fetchCatsData } from "../../Util/Http";
+import LoadingPlaceholder from "../../Components/Ui/LoadingPlaceholder";
 
 const Cats = () => {
-  const allCats = "asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege";
-  const [cats, setCats] = useState([]);
-  const [selected, setSelected] = useState(allCats);
-  const [isLoading, setIsLoading] = useState(false);
-  const [newError, setNewError] = useState(false);
 
+  const allCats = "asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege";
+
+  const [selected, setSelected] = useState(allCats);
 
   const setSelectedHandler = (e) => {
     let type = e.target.value;
     setSelected(type);
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchData = async () => {
-      try {
-        const response = await axios(
-          `https://api.thecatapi.com/v1/images/search?limit=21&breed_ids=${selected}&api_key=live_O1P6WzQTUCef1gD2qfZr2svMlVjslOIoiy9X8P01ZSpM9ZKPCQpWO5FUtta8yN3h`
-        );
-        if (response.status===200) {
-          setCats(response.data);
-          setNewError(false);
-        } else {
-          throw new Error("Couldn't fetch data well please try again later!");
-        }
-      } catch (error) {
-        setNewError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, [selected]);
-  useEffect(()=>{
-    window.scrollTo(0, 0);
-  },[])
+  const { data, isPending, isError, isFetching, refetch } = useQuery({
+    queryKey: ["cats"],
+    queryFn: ({ signal }) => fetchCatsData({ signal, selected }),
+    staleTime: 10000,
+  });
 
+
+  useEffect(() => {
+    if (selected) {
+      refetch();
+    }
+  }, [selected, refetch]);
 
   return (
     <>
-      {newError ? (
-        <Error nav={false} text="couldn't fetch resources or data please try again later" />
+      {isError ? (
+        <Error
+          nav={false}
+          text="couldn't fetch resources or data please try again later"
+        />
       ) : (
         <div className={styles.container}>
-          {isLoading && <Loading />}
+          {isPending && <Loading />}
           <HeroOne />
           <Container fluid className="px-lg-5">
             <DogsSelection
@@ -62,8 +52,18 @@ const Cats = () => {
               allCats={allCats}
             />
             <Row className="mt-5 px-lg-5">
-              {cats &&
-                cats.map((cat) => {
+              {isFetching ? (
+                <>
+                  <LoadingPlaceholder />
+                  <LoadingPlaceholder />
+                  <LoadingPlaceholder />
+                  <LoadingPlaceholder />
+                  <LoadingPlaceholder />
+                  <LoadingPlaceholder />
+                </>
+              ) : (
+                data &&
+                data.map((cat) => {
                   return (
                     <PetCard
                       key={cat.id}
@@ -84,7 +84,8 @@ const Cats = () => {
                       type="cat"
                     />
                   );
-                })}
+                })
+              )}
             </Row>
           </Container>
         </div>
