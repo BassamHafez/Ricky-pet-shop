@@ -7,7 +7,6 @@ import CommonButton from "./CommonButton";
 const ConfirmationModal = (props) => {
 
   const isLogin=props.pageType==='login';
-
   return (
     <Modal show={props.show} onHide={props.handleClose} animation={false}>
       <Modal.Header closeButton>

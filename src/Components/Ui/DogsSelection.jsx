@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./DogsSelection.module.css";
 
 const DogsSelection = (props) => {
+  
+  console.log("hi iam selector")
   const isDog = props.name === "dogType";
   return (
     <>

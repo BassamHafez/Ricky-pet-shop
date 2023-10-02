@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Container, Row } from "react-bootstrap";
 import PetCard from "../../Components/Ui/PetCard";
@@ -34,6 +34,22 @@ const Dogs = () => {
     }
   }, [selected, refetch]);
 
+
+  const heroMemo = useMemo(() =><CarouselFade />, []);
+  const loadingMemo = useMemo(() => <LoadingPlaceholder />, []);
+  const selectionMemo = useMemo(
+    () => (
+      <DogsSelection
+        name="catType"
+        runSelectHandler={setSelectedHandler}
+        allDogs={allDogs}
+      />
+    ),
+    []
+  );
+      
+
+
   return (
     <>
       {isPending && <Loading />}
@@ -44,22 +60,18 @@ const Dogs = () => {
         />
       )}
       <div className={styles.container}>
-        <CarouselFade />
+          {heroMemo}
         <Container fluid className="px-lg-5">
-          <DogsSelection
-            name="dogType"
-            runSelectHandler={setSelectedHandler}
-            allDogs={allDogs}
-          />
+       {selectionMemo}
           <Row className="mt-5 px-lg-5">
             {isFetching ? (
               <>
-                <LoadingPlaceholder />
-                <LoadingPlaceholder />
-                <LoadingPlaceholder />
-                <LoadingPlaceholder />
-                <LoadingPlaceholder />
-                <LoadingPlaceholder />
+               {loadingMemo}
+               {loadingMemo}
+               {loadingMemo}
+               {loadingMemo}
+               {loadingMemo}
+               {loadingMemo}
               </>
             ) : (
               data &&

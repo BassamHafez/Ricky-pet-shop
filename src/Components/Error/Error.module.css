@@ -1,3 +1,4 @@
+
 .container{
     display: flex;
     justify-content: center;
@@ -7,7 +8,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-color: #010005;
+    background-color: #03020A;
     color: white;
     position: fixed;
     top: 0;

@@ -22,6 +22,7 @@ const Home = () => {
     window.scrollTo(0, 0);
   });
 
+
   return (
     <>
       {isLoading && <Loading />}

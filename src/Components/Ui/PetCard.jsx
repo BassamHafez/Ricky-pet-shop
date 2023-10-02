@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import styles from "./PetCard.module.css";
@@ -91,7 +91,7 @@ const PetCard = (props) => {
       );
     }
     navigate("singlePet");
-  };
+  }
 
   const navigateToLoginPage = () => {
     navigate("/login?mode=signin");
@@ -99,6 +99,7 @@ const PetCard = (props) => {
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
+
 
   useEffect(()=>{
     if(props.name==='American Eskimo Dog (Miniature)'){
@@ -108,6 +109,8 @@ const PetCard = (props) => {
       setIsLongName(false)
     }
   },[props.name])
+
+
 
   return (
     <>
@@ -146,7 +149,7 @@ const PetCard = (props) => {
               </button>
             </div>
           </div>
-          <MainButton text="Read More" />
+          <MainButton onClick={token ? sendDataToSinglePet : handleShow} text="Read More" />
         </div>
       </Col>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import PetCard from "../../Components/Ui/PetCard";
 import styles from "./Cats.module.css";
@@ -11,7 +11,6 @@ import { fetchCatsData } from "../../Util/Http";
 import LoadingPlaceholder from "../../Components/Ui/LoadingPlaceholder";
 
 const Cats = () => {
-
   const allCats = "asho,bslo,bsho,Birm,Bali,Cymr,Char,Khao,aege";
 
   const [selected, setSelected] = useState(allCats);
@@ -27,13 +26,25 @@ const Cats = () => {
     staleTime: 10000,
   });
 
-
   useEffect(() => {
     if (selected) {
       refetch();
     }
   }, [selected, refetch]);
 
+  const heroMemo = useMemo(() => <HeroOne />, []);
+  const loadingMemo = useMemo(() => <LoadingPlaceholder />, []);
+  const selectionMemo = useMemo(
+    () => (
+      <DogsSelection
+        name="catType"
+        runSelectHandler={setSelectedHandler}
+        allCats={allCats}
+      />
+    ),
+    []
+  );
+      
   return (
     <>
       {isError ? (
@@ -44,22 +55,17 @@ const Cats = () => {
       ) : (
         <div className={styles.container}>
           {isPending && <Loading />}
-          <HeroOne />
+          {heroMemo}
           <Container fluid className="px-lg-5">
-            <DogsSelection
-              name="catType"
-              runSelectHandler={setSelectedHandler}
-              allCats={allCats}
-            />
+            {selectionMemo}
             <Row className="mt-5 px-lg-5">
               {isFetching ? (
                 <>
-                  <LoadingPlaceholder />
-                  <LoadingPlaceholder />
-                  <LoadingPlaceholder />
-                  <LoadingPlaceholder />
-                  <LoadingPlaceholder />
-                  <LoadingPlaceholder />
+                  {loadingMemo}
+                  {loadingMemo}
+                  {loadingMemo}
+                  {loadingMemo}
+                  {loadingMemo}
                 </>
               ) : (
                 data &&
