@@ -19,7 +19,9 @@ import saveDataInLocalStorage, {
 import Login from "./Pages/Login/Login";
 import { action as formAction } from "./Pages/Login/Login";
 import getToken, { logout, checkToken } from "./Auth/Auth";
-import { QueryClientProvider,QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ToastContainer } from 'react-toastify';
+
 let isFirstTime = true;
 
 const router = createBrowserRouter([
@@ -47,7 +49,6 @@ function App() {
   const cartItems = useSelector((state) => state.cart);
   const wishItems = useSelector((state) => state.wish);
   const singlePet = useSelector((state) => state.singlePet);
-
   //send and receive data from cart
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("cart"))) {
@@ -99,9 +100,14 @@ function App() {
     }
   }, [singlePet, dispatch]);
 
-  const queryClient=new QueryClient()
+  const queryClient = new QueryClient();
 
-  return <QueryClientProvider client={queryClient}><RouterProvider router={router} /></QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer position="bottom-left" />
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

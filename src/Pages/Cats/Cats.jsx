@@ -32,7 +32,9 @@ const Cats = () => {
     }
   }, [selected, refetch]);
 
-  const heroMemo = useMemo(() => <HeroOne />, []);
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  },[])
   const loadingMemo = useMemo(() => <LoadingPlaceholder />, []);
   const selectionMemo = useMemo(
     () => (
@@ -55,7 +57,7 @@ const Cats = () => {
       ) : (
         <div className={styles.container}>
           {isPending && <Loading />}
-          {heroMemo}
+          <HeroOne />
           <Container fluid className="px-lg-5">
             {selectionMemo}
             <Row className="mt-5 px-lg-5">

@@ -5,7 +5,8 @@
     margin-inline: 0.9375rem;
     color: white;
     transition: all .5s;
+    min-width: 100px;
 }
 .login:hover{
-    border-radius: 0 1.875rem  0 1.875rem ;
+ scale: 1.1;
 }

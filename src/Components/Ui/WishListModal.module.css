@@ -27,7 +27,8 @@
     color: black;
     font-weight: 700;
     padding: 0.625rem;
-    border-radius: 0 100% 100% 0;
+    border-radius: 10px;
+    min-width: 100px;
     transition: all .5s;
  }
  .order_btn button:hover{

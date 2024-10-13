@@ -11,6 +11,7 @@ const Root = () => {
 
   return (
     <>
+      
       <Navs />
       <main>
         {navigation.state==="loading"?<Loading/>:""}

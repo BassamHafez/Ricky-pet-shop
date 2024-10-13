@@ -1,8 +1,6 @@
 
    .Swiper_container{
     width: 100%;
-    border-radius: 20px;
-    border: 2px solid #cfa1fc;
    }
   .slide {
     width: 100%;
@@ -10,6 +8,8 @@
     padding: 50px;
     padding-left: 10px;
     background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.286);
   }
   .person{
     border: 2px dashed #7321c498;
@@ -61,7 +61,7 @@
        cursor: pointer;
     }
     .reacts > *:hover{
-        transform: scale(2);
+       scale: 1.1;
     }
   
 

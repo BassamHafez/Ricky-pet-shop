@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
 
-import { EffectCreative,Autoplay } from "swiper/modules";
+import { EffectCreative, Autoplay } from "swiper/modules";
 import styles from "./Swipper.module.css";
 
 import person1 from "../../images/customer-1.jpg";
@@ -14,14 +14,22 @@ import person4 from "../../images/testimonial-2.jpg";
 import person5 from "../../images/testimonial-4.jpg";
 
 const Swipper = () => {
+  const reactsIcons = (
+    <div className={styles.reacts}>
+      <i className="fa-solid fa-thumbs-up mx-3"></i>
+      <i className="fa-solid fa-comment mx-3"></i>
+      <i className="fa-solid fa-heart mx-3"></i>
+    </div>
+  );
+
   return (
     <>
       <Swiper
         autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter:true,
-            reverseDirection:true
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: true,
         }}
         grabCursor={true}
         effect={"creative"}
@@ -34,11 +42,11 @@ const Swipper = () => {
             translate: ["100%", 0, 0],
           },
         }}
-        modules={[EffectCreative,Autoplay]}
+        modules={[EffectCreative, Autoplay]}
         className={`${styles.Swiper_container} mySwiper`}
       >
         <SwiperSlide className={styles.slide}>
-          <div className="d-flex align-items-center px-2">
+          <div className="d-flex align-items-center px-2 flex-wrap">
             <img
               src={person1}
               className={`${styles.person} mx-2`}
@@ -56,14 +64,10 @@ const Swipper = () => {
               your care recommendations. Great selection and advice as always!
             </p>
           </div>
-          <div className={styles.reacts}>
-            <i className="fa-solid fa-thumbs-up mx-3"></i>
-            <i className="fa-solid fa-comment mx-3"></i>
-            <i className="fa-solid fa-heart mx-3"></i>
-          </div>
+          {reactsIcons}
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
-          <div className="d-flex align-items-center px-2">
+          <div className="d-flex align-items-center px-2 flex-wrap">
             <img
               src={person2}
               className={`${styles.person} mx-2`}
@@ -81,14 +85,10 @@ const Swipper = () => {
               We'll be back soon!
             </p>
           </div>
-          <div className={styles.reacts}>
-            <i className="fa-solid fa-thumbs-up mx-3"></i>
-            <i className="fa-solid fa-comment mx-3"></i>
-            <i className="fa-solid fa-heart mx-3"></i>
-          </div>
+          {reactsIcons}
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
-          <div className="d-flex align-items-center px-2">
+          <div className="d-flex align-items-center px-2 flex-wrap">
             <img
               src={person3}
               className={`${styles.person} mx-2`}
@@ -106,14 +106,10 @@ const Swipper = () => {
               settling in great with her new things.
             </p>
           </div>
-          <div className={styles.reacts}>
-            <i className="fa-solid fa-thumbs-up mx-3"></i>
-            <i className="fa-solid fa-comment mx-3"></i>
-            <i className="fa-solid fa-heart mx-3"></i>
-          </div>
+          {reactsIcons}
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
-          <div className="d-flex align-items-center px-2">
+          <div className="d-flex align-items-center px-2 flex-wrap">
             <img
               src={person4}
               className={`${styles.person} mx-2`}
@@ -131,14 +127,10 @@ const Swipper = () => {
               advice we received.
             </p>
           </div>
-          <div className={styles.reacts}>
-            <i className="fa-solid fa-thumbs-up mx-3"></i>
-            <i className="fa-solid fa-comment mx-3"></i>
-            <i className="fa-solid fa-heart mx-3"></i>
-          </div>
+          {reactsIcons}
         </SwiperSlide>
         <SwiperSlide className={styles.slide}>
-          <div className="d-flex align-items-center px-2">
+          <div className="d-flex align-items-center px-2 flex-wrap">
             <img
               src={person5}
               className={`${styles.person} mx-2`}
@@ -156,11 +148,7 @@ const Swipper = () => {
               - it was lovely to shop at such a pet-friendly store.
             </p>
           </div>
-          <div className={styles.reacts}>
-            <i className="fa-solid fa-thumbs-up mx-3"></i>
-            <i className="fa-solid fa-comment mx-3"></i>
-            <i className="fa-solid fa-heart mx-3"></i>
-          </div>
+          {reactsIcons}
         </SwiperSlide>
       </Swiper>
     </>

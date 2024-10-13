@@ -34,3 +34,13 @@
         font-size: 2.1875rem;
     }
 }
+@media screen and (max-width:370px) {
+  .social{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .social i{
+    margin: 50px 10px;
+  }
+}
+

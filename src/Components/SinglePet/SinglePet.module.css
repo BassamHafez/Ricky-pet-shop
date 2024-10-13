@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     background-color: #F3F5F6;
+    padding: 3.125rem;
 }
 .row{
     box-shadow:  0 0 0.3125rem rgba(0, 0, 0, 0.836);
@@ -29,14 +30,14 @@
     padding: 0.3125rem;
     width: 80%;
     border-radius: 0 0 0.625rem 0.625rem;
-    color:rgb(67, 177, 140);
+    color:rgb(32, 168, 236);
     background-color: rgb(15, 1, 26);
  
 }
 
 .reacts span{
     font-size: 1.125rem;
-    color:var(--indigo);
+    color:rgb(32, 168, 236);
     font-weight: 700;
 }
 .reacts_love,.reacts_comment,.reacts_share{
@@ -79,6 +80,9 @@
     color: #677279;
 }
 .contacts{
+    display: flex;
+    justify-content: end;
+    align-items: center;
     font-size: 1.5625rem;
     color: #677279;
 }
@@ -105,6 +109,22 @@
     font-weight: 900;
     font-family: var(--main_font);
 }
-@media screen and (max-width:300px) {
-    
+@media screen and (max-width:768px) {
+    .single_pet_container{
+       width: 95%;
+       margin: 50px auto;
+       padding: 0;
+    }
+    .contacts{
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (max-width:350px) {
+    .reacts{
+    flex-wrap: wrap;
+    }
+    .header h2{
+        font-size: 1.875rem;
+    }
 }

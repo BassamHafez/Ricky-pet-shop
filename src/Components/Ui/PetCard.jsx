@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useRouteLoaderData } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import styles from "./PetCard.module.css";
@@ -8,26 +8,18 @@ import { wishActions } from "../../Store/wish-slice";
 import MainButton from "./MainButton";
 import { singlePetActions } from "../../Store/singlePet-slice";
 import ConfirmationModal from "./ConfirmationModal";
-import ToastsAlert from "./ToastsAlert";
+import {toast } from 'react-toastify';
 
 const PetCard = (props) => {
   const [show, setShow] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toaastText,setToastText]=useState("added")
-  const [isLongName,setIsLongName] = useState(false);
+  const [isLongName, setIsLongName] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = useRouteLoaderData("root");
 
 
-  const showToastHandler=()=>{
-    setShowToast(true)
-  };
-
-  const hideToastHandler=()=>{
-    setShowToast(false)
-  };
+  const notifySuccess = (msg) => toast.success(msg);
 
   const addToCartHandler = () => {
     dispatch(
@@ -37,8 +29,7 @@ const PetCard = (props) => {
         src: props.src,
       })
     );
-    showToastHandler();
-    setToastText("added to your Cart");
+    notifySuccess("Added to your Cart");
   };
 
   const addtoWishHandler = () => {
@@ -49,8 +40,7 @@ const PetCard = (props) => {
         src: props.src,
       })
     );
-    showToastHandler();
-    setToastText("added to your Wish List");
+    notifySuccess("Added to your Wish List");
   };
 
   const sendDataToSinglePet = () => {
@@ -91,7 +81,7 @@ const PetCard = (props) => {
       );
     }
     navigate("singlePet");
-  }
+  };
 
   const navigateToLoginPage = () => {
     navigate("/login?mode=signin");
@@ -100,17 +90,13 @@ const PetCard = (props) => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-
-  useEffect(()=>{
-    if(props.name==='American Eskimo Dog (Miniature)'){
-      setIsLongName(true)
+  useEffect(() => {
+    if (props.name === "American Eskimo Dog (Miniature)") {
+      setIsLongName(true);
+    } else {
+      setIsLongName(false);
     }
-    else{
-      setIsLongName(false)
-    }
-  },[props.name])
-
-
+  }, [props.name]);
 
   return (
     <>
@@ -121,7 +107,7 @@ const PetCard = (props) => {
               <img src={props.src} alt={props.name} />
             </div>
             <div className={styles.card_caption}>
-              <h5>{isLongName?'American Miniature':props.name}</h5>
+              <h5>{isLongName ? "American Miniature" : props.name}</h5>
               <p className={styles.life}>
                 <span>life_span </span>: {props.life}
               </p>
@@ -149,18 +135,21 @@ const PetCard = (props) => {
               </button>
             </div>
           </div>
-          <MainButton onClick={token ? sendDataToSinglePet : handleShow} text="Read More" />
+          <MainButton
+            onClick={token ? sendDataToSinglePet : handleShow}
+            text="Read More"
+          />
         </div>
       </Col>
 
-      <ConfirmationModal
-        pageType="login"
-        onClick={navigateToLoginPage}
-        handleClose={handleClose}
-        show={show}
-      />
-
-      <ToastsAlert text={toaastText} show={showToast} onHideToastHandler={hideToastHandler} />
+      {show && (
+        <ConfirmationModal
+          pageType="login"
+          onClick={navigateToLoginPage}
+          handleClose={handleClose}
+          show={show}
+        />
+      )}
     </>
   );
 };

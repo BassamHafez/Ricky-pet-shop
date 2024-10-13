@@ -4,7 +4,7 @@
 
 .caros_item img{
     width: 100%;
-    height: 100vh;
+    height: 91vh;
     object-fit: cover;
 }
 .caros_layer{
@@ -43,6 +43,7 @@
     right: 3%;
     top: 0;
     height: 100%;
+    object-fit: contain;
     overflow: hidden;
 }
 .slide_img img{

@@ -4,9 +4,11 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../Store/cart-slice';
 import classes from './CartItemTwo.module.css';
 import { wishActions } from './../../Store/wish-slice';
+import { toast } from "react-toastify";
 
 const CartItem = (props) => {
   const dispatch= useDispatch();
+  const notifySuccess = (msg) => toast(msg);
 
   const addItemHandler=(isCart)=>{
     if(isCart){
@@ -19,7 +21,7 @@ const CartItem = (props) => {
         id:props.id,
       }))
     }
- 
+    notifySuccess("Order Increased successfully")
   }
   const id =props.id
   const removeItemHandler=(isCart)=>{
@@ -29,6 +31,7 @@ const CartItem = (props) => {
     else{
       dispatch(wishActions.removeItemsFromWishList(id))
     }
+    notifySuccess("Order Decreased successfully")
   }
 
   const removeFullItemHandler=(isCart)=>{
@@ -44,9 +47,8 @@ const CartItem = (props) => {
         quantity:props.quantity
       }))
     }
+    notifySuccess("Order Deleted successfully")
   }
-
- 
 
 
   const cssCLasses= props.wishList?styles:classes;
@@ -61,9 +63,9 @@ const CartItem = (props) => {
       <div className={cssCLasses.item_caption}>
         <h4 className={cssCLasses.item_title}>{props.name}</h4>
         <div className={cssCLasses.item_controls}>
-          <button onClick={()=>removeItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}>-</button>
+          <button onClick={()=>removeItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}><i className="fa-solid fa-minus"></i></button>
           <span>{props.quantity}</span>
-          <button onClick={()=>addItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}>+</button>
+          <button onClick={()=>addItemHandler(!props.wishList)} className={cssCLasses.item_controls_plmi}><i className="fa-solid fa-plus"></i></button>
         </div>
         <button onClick={()=>removeFullItemHandler(!props.wishList)} className={cssCLasses.item_bin}>
           <i className="fa-solid fa-trash-can"></i>

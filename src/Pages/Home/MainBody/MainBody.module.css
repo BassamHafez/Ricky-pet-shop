@@ -10,7 +10,6 @@
 
 .first_sec_item_fish{
     background-image: url( ../../../images/ricky-1548972790.jpg);
-
 }
 
 .first_sec_item_bird{
@@ -23,14 +22,16 @@
 .first_sec_item_fish,.first_sec_item_bird,.first_sec_item_rabbit{
     background-size: cover;
     min-height: 25rem;
+    width: 100%;
     display: flex;
     justify-content:flex-end;
     align-items: center;
+    border-radius: 10px;
 }
 .first_sec_item_fish h2,.first_sec_item_bird h2,.first_sec_item_rabbit h2{
     width:50%;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 30px;
     color: white;
     font-family: cursive;
     font-weight: 700;
@@ -41,7 +42,9 @@
 
 https://parkofideas.com/ricky/demo/home-8/
 */
-
+.cat_img{
+    width: 31.25rem;
+}
 .second_sec_caption{
     text-align: center;
     display: flex;
@@ -50,23 +53,21 @@ https://parkofideas.com/ricky/demo/home-8/
     align-items: center;
 }
 .second_sec_caption h2,.second_sec_caption h4{
-        background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
         font-size: 2.1875rem;
         width: 100%;
         font-weight: 700;
 }
     .second_sec_caption h2{
+        background:-webkit-linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-size: 5rem;
         font-weight: 800;
     }
     .second_sec_caption h6{
         font-size: 1.25rem;
-        color: #9d61da;
         margin-bottom: 1.875rem;
-        font-weight: 700;
     }
 
     /* _____________________________________________________________________________________ */
@@ -74,12 +75,17 @@ https://parkofideas.com/ricky/demo/home-8/
     .third_sec{
         position: relative;
     }
-    .pet_types img{
-        cursor: pointer;
+    .pet_types{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sec3_img{
+        width: 250px;
         transition: all .5s;
     }
-
-    .pet_types img:hover{
+    .sec3_img:hover{
         transform: scale(1.1);
     }
 
@@ -90,12 +96,12 @@ https://parkofideas.com/ricky/demo/home-8/
     }
 
     /* _____________________________________________________________________________________ */
-    /* start third section */
+    /* start fourth section */
     .fourth_sec{
         padding:2.5rem;
         position: relative;
     }
-
+    
     .fourth_sec_title{
         font-size: 1.5625rem;
         font-family: cursive;
@@ -119,37 +125,45 @@ https://parkofideas.com/ricky/demo/home-8/
         border: 2px solid var(--indigo) !important;
     }
 
+
+    @media screen and (max-width:1000px) { 
+        .second_sec_caption h2{
+            font-size: 3.125rem;
+            padding:1.25rem 0;
+        }
+        .second_sec_caption h4{
+            font-size: 1.5625rem;
+            padding:1.25rem 0;
+        }
     
+    }
     
-
-
-
 @media screen and (max-width:768px) {
  
     .second_sec_caption{
         margin: auto;
         width: 100%;
     }   
-    .second_sec_caption h2{
-        font-size:3.125rem;
-    }
-    .second_sec_caption h4{
-        font-size: 1.5625rem;
-    }
     form{
         margin-bottom: 3.125rem;
     }
+
 }
-
-
-@media screen and (max-width:62.5rem) { 
+@media screen and (max-width:500px) {
+    .cat_img{
+        width:100%;
+    }
+}
+@media screen and (max-width:350px) {
     .second_sec_caption h2{
-        font-size: 3.125rem;
-        padding:1.25rem 0;
+        font-size: 2.5rem;
     }
-    .second_sec_caption h4{
-        font-size: 1.5625rem;
-        padding:1.25rem 0;
+}
+@media screen and (max-width:260px) {
+    .second_sec_caption h2{
+        font-size: 1.5625rem
     }
 
 }
+
+

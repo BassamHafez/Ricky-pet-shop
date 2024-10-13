@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+
+*{
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  scroll-behavior: smooth;
+  background-color: #edd0f7 !important;
+  overflow-x: hidden;
+  font-family: 'Quicksand', sans-serif;
+}
+:root{
+    --main_color:#5D1A9F;
+    --indigo:#8c41d8;
+    --pink:#c978ff;
+    --light:#CFF1FF;
+    --dark_light:#26b3f0;
+    --indigo_gradiant:linear-gradient(135deg,#a06ad6,#8c41d8,var(--main_color));
+    --main_font:cursive;
+    --secondary_font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+::-webkit-scrollbar{
+  background-color:var(--main_color);
+  position: relative;
+  width: 0.625rem;
+}
+::-webkit-scrollbar-track{
+  border-radius: 50%;
+  background-color:rgb(212, 212, 212);
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--main_color);
+  border-radius: 10px;
+}
+
+a{
+  text-decoration: none !important;
+  outline: none;
+
+}
+button,input{
+  outline: none;
+  border: none;
+}
+button{
+  background-color: transparent;
+}
+.fab,.fa-solid{
+  transition: all .5s;
+}
+.fa-facebook:hover {
+  color:  #1877F2;
+  cursor: pointer;
+
+}
+.fa-youtube:hover,.fa-pinterest:hover{
+
+  cursor: pointer;
+  color: red;
+}
+.fa-tiktok:hover,.fa-envelope:hover{
+
+  cursor: pointer;
+  color: black;
+}
+.fa-instagram:hover{
+
+  cursor: pointer;
+  color:#E4405F
+}
+.fa-twitter:hover{
+
+  cursor: pointer;
+  color:  #1DA1F2 ;
+}
+
+.carousel-control-prev-icon,.carousel-control-next-icon{
+  background-color: var(--main_color);
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  opacity:0;
+  transition: opacity .6s;
+}
+.carousel-control-prev:hover .carousel-control-prev-icon,.carousel-control-next:hover .carousel-control-next-icon{
+  opacity: 1;
+}
+.carousel-control-prev-icon{
+  margin-right: 50px;
+}
+.carousel-control-next-icon{
+  margin-left: 50px;
+}
+.carousel-indicators button{
+  border-radius: 50% !important;
+  padding: 10px 5px !important;
+}
+.carousel-indicators .active{
+  background-color: var(--main_color) !important;
+}
+
+@media screen and (max-width:768px) {
+  body,html{
+    font-size: 14px;
+  }
+}

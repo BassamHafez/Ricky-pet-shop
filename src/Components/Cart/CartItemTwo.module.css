@@ -1,8 +1,6 @@
 .item_container{
-    background-image: url(../../images/feets.png);
-    background-color:#6b6a6a9a;
+    background-color:rgba(255, 255, 255, 0.69);
     border-radius: 0.625rem;
-    box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.507);
     margin-bottom: 2.5rem;
     margin-inline: 50px;
     overflow: hidden;
@@ -13,12 +11,10 @@
     width: 12.5rem;
     height: 9.375rem;
     overflow: hidden;
-    background-color: rgb(230, 173, 18);
     position: relative;
 }
 .item_img img{
     height: 77%;
-    border-right: 0.125rem solid rgb(230, 173, 18);
 }
 .item_caption{
     margin-left: 3.125rem;
@@ -32,17 +28,16 @@
 .item_title{
     font-weight: 700;
     font-size: 1.875rem;
-    color: rgb(230, 173, 18);
 }
 .item_bin,.item_share{
     position: absolute;
     font-size: 1.25rem;
-    color: rgb(230, 173, 18);
     transition: all .5s;
 }
 .item_bin{
     right: 1%;
     top: 5%;
+    color: red;
 }
 .item_share{
     right: 1%;
@@ -53,17 +48,16 @@
 }
 
 .item_controls_plmi{
-    padding-inline:1.25rem;
-    border-radius:0.625rem 0 0.625rem 0;
+    padding: 5px 10px;
     margin-inline:1.25rem;
-    color: black;
-    background-color: white;
-    font-size: 1.25rem;
+    color: white;
+    background-color: rgb(22, 198, 234);
+    border-radius: 10px;
     transition: all .5s;
 }
 .item_controls_plmi:hover{
-    transform: scale(1.2);
-    background-color:rgb(230, 173, 18);
+   scale: 1.05;
+   
 }
 .item_controls span{
     font-size: 1.125rem;
