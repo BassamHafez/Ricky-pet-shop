@@ -35,9 +35,9 @@ export async function action ({request}) {
     let  authData = {
       email:formData.get('email'),
       password:formData.get('password'),
-      first_name:formData.get('first_name'),
-      last_name:formData.get('last_name'),
-      age:formData.get('age')
+      rePassword:formData.get('rePassword'),
+      phone:formData.get('phone'),
+      name:formData.get('name')
     };
 
     if(mode ==='singin'){
@@ -47,7 +47,7 @@ export async function action ({request}) {
       }
     }
 
-    const {data} = await axios.post(`https://movies-api.routemisr.com/${mode}`,authData);
+    const {data} = await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/${mode}`,authData);
     if(data.message==='success'){
       console.log(data)
       localStorage.setItem('token',data.token);

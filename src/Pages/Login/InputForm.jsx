@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./InputForm.module.css";
 import CommonButton from "../../Components/Ui/CommonButton";
-import { Form, Link, useActionData, useSearchParams,useNavigation } from "react-router-dom";
+import {
+  Form,
+  Link,
+  useActionData,
+  useSearchParams,
+  useNavigation,
+} from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 
 const InputForm = () => {
@@ -12,8 +18,8 @@ const InputForm = () => {
 
   const [searchParams] = useSearchParams();
 
-  const navigation=useNavigation();
-  let isSubmitting= navigation.state==='submitting';
+  const navigation = useNavigation();
+  let isSubmitting = navigation.state === "submitting";
   let isLogin = searchParams.get("mode") === "signin";
 
   const data = useActionData();
@@ -33,9 +39,6 @@ const InputForm = () => {
     setError({ email: error.email, password: "" });
   };
 
-
-
-
   useEffect(() => {
     if (data) {
       if (data.errors) {
@@ -45,19 +48,16 @@ const InputForm = () => {
             password: "",
           });
           return;
-        }
-        else if(!data.errors.email){
+        } else if (!data.errors.email) {
           setError({
             email: "",
             password: data.errors.password.message || "",
-            
           });
           return;
         }
         setError({
           email: data.errors.email.message || "",
           password: data.errors.password.message || "",
-          
         });
         return;
       }
@@ -80,25 +80,50 @@ const InputForm = () => {
     <Form
       method="post"
       className={`${styles.form} ${!error.email && !error.password && "mt-5"} ${
-        isLogin && "mt-5"}`}
+        isLogin && "mt-5"
+      }`}
     >
-      <h3 className={styles.title}>{isSubmitting?'submitting...':isLogin ? "Login" : "Register"}</h3>
+      <h3 className={styles.title}>
+        {isSubmitting ? "submitting..." : isLogin ? "Login" : "Register"}
+      </h3>
+      {!isLogin && (
+        <>
+          <input
+            type="name"
+            name="name"
+            className="form-control mb-2"
+            placeholder="name"
+          />
+          <input
+            type="tel"
+            name="phone"
+            className="form-control mb-2"
+            placeholder="phone"
+          />
+        </>
+      )}
       <input
         type="email"
         name="email"
-        className={`${
-          (error.email || isEmail) && "is-invalid"
-        } form-control ${isLogin?'mb-3':'mb-2'}`}
-        placeholder="Your Email"
+        className={`${(error.email || isEmail) && "is-invalid"} form-control ${
+          isLogin ? "mb-3" : "mb-2"
+        }`}
+        placeholder="Email"
         onClick={clearEmailField}
       />
       {error.email && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
+        <Alert
+          className={`${styles.alert} ${isLogin && "mb-3"}`}
+          variant="danger"
+        >
           {error.email}
         </Alert>
       )}
       {isEmail && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
+        <Alert
+          className={`${styles.alert} ${isLogin && "mb-3"}`}
+          variant="danger"
+        >
           {isEmail}
         </Alert>
       )}
@@ -107,41 +132,33 @@ const InputForm = () => {
         name="password"
         className={`${
           (error.password || isPassword) && "is-invalid"
-        } form-control ${isLogin?'mb-3':'mb-3'}`}
-        placeholder="Enter Your Password"
+        } form-control ${isLogin ? "mb-3" : "mb-3"}`}
+        placeholder="Password"
         onClick={clearPasswordField}
       />
       {error.password && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
+        <Alert
+          className={`${styles.alert} ${isLogin && "mb-3"}`}
+          variant="danger"
+        >
           {error.password}
         </Alert>
       )}
       {isPassword && (
-        <Alert className={`${styles.alert} ${isLogin&&'mb-3'}`} variant="danger">
+        <Alert
+          className={`${styles.alert} ${isLogin && "mb-3"}`}
+          variant="danger"
+        >
           {isPassword}
         </Alert>
       )}
       {!isLogin && (
-        <>
-          <input
-            type="name"
-            name="first_name"
-            className="form-control mb-2"
-            placeholder="first_name"
-          />
-          <input
-            type="name"
-            name="last_name"
-            className="form-control mb-2"
-            placeholder="last_name"
-          />
-          <input
-            type="age"
-            name="age"
-            className="form-control mb-3"
-            placeholder="Your age"
-          />
-        </>
+        <input
+          type="password"
+          name="rePassword"
+          className="form-control mb-3"
+          placeholder="Confirm Password"
+        />
       )}
       <CommonButton
         text={isLogin ? "Login" : "Register"}
